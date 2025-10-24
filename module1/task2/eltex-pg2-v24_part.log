@@ -1,0 +1,58 @@
+
+2025-10-17 14:58 source ~/.bashrc [EXITCODE:] 0
+2025-10-17 14:58 echo test [EXITCODE:] 0
+2025-10-17 14:59 tail eltex-pg2-v24_part.log  [EXITCODE:] 0
+2025-10-17 14:59 clear [EXITCODE:] 0
+2025-10-17 14:59 ls [EXITCODE:] 0
+2025-10-17 15:01 echo $HISTSIZE  [EXITCODE:] 0
+2025-10-17 15:04 ls .* [EXITCODE:] 0
+2025-10-17 15:04 ls -d .* [EXITCODE:] 0
+2025-10-17 15:06 echo test [EXITCODE:] 0
+2025-10-17 15:07 tail eltex-pg2-v24_part.log  [EXITCODE:] 0
+2025-10-17 15:07 DATE=$(date +"%Y-%m-%d") [EXITCODE:] 0
+2025-10-17 15:08 echo $DATE [EXITCODE:] 0
+2025-10-17 15:08 TIME=$(date +"%H:%M") [EXITCODE:] 0
+2025-10-17 15:08 echo $TIME [EXITCODE:] 0
+2025-10-17 15:09 DATE_TIME="$DATE $TIME" [EXITCODE:] 0
+2025-10-17 15:09 echo $DATE_TIME  [EXITCODE:] 0
+2025-10-17 15:10 ls /bin /sbin | grep '[0-9]' [EXITCODE:] 0
+2025-10-17 15:12 PS1="/u@/h-$(date +"%H:%M")" [EXITCODE:] 0
+2025-10-17 15:13 PS1="\033[92m/u@/h-$(date +"%H:%M")>" [EXITCODE:] 0
+2025-10-17 15:13 PS1="\033[92m\u@\h-$(date +"%H:%M")>" [EXITCODE:] 0
+2025-10-17 15:13 clear [EXITCODE:] 0
+2025-10-17 15:16 export PS1="\033[92m\u@\h-$(date +"%H:%M")>\033[0m" [EXITCODE:] 0
+2025-10-17 15:16 export PS1="\033[92m\u@\h-$(date +"%H:%M")> \033[0m" [EXITCODE:] 0
+2025-10-17 15:21 export ENV="$HOME/.bashrc_custom" [EXITCODE:] 0
+2025-10-17 15:21 touch $HOME/.bashrc_custom [EXITCODE:] 0
+2025-10-17 15:23 echo "PS1=$PS1" >> $HOME/.bashrc_custom  [EXITCODE:] 0
+2025-10-17 15:23 tail $HOME/.bashrc_custom  [EXITCODE:] 0
+2025-10-17 15:24 echo 'PS1="$PS1"' > $HOME/.bashrc_custom  [EXITCODE:] 0
+2025-10-17 15:24 tail $HOME/.bashrc_custom  [EXITCODE:] 0
+2025-10-17 15:24 clear [EXITCODE:] 0
+2025-10-17 15:24 ls [EXITCODE:] 0
+2025-10-17 15:26 rmdir $(date +"%Y")[0-9] [EXITCODE:] 1
+2025-10-17 15:26 rmdir $(date +"%Y")-[0-9] [EXITCODE:] 0
+2025-10-17 15:26 ls [EXITCODE:] 0
+2025-10-17 15:26 rmdir $(date +"%Y")-[0-12] [EXITCODE:] 1
+2025-10-17 15:26 ls [EXITCODE:] 0
+2025-10-17 15:26 rmdir $(date +"%Y")-[10-12] [EXITCODE:] 1
+2025-10-17 15:27 rmdir $(date +"%Y")-10 [EXITCODE:] 0
+2025-10-17 15:27 rmdir $(date +"%Y")-11 [EXITCODE:] 0
+2025-10-17 15:27 rmdir $(date +"%Y")-12 [EXITCODE:] 0
+2025-10-17 15:28 mkdir $(date +"%Y")-[1-12] [EXITCODE:] 0
+2025-10-17 15:28 ls [EXITCODE:] 0
+2025-10-17 15:31 rmdir '2025-[1-12]'/ [EXITCODE:] 0
+2025-10-17 15:31 ls [EXITCODE:] 0
+2025-10-17 15:31 mkdir $(date +"%Y")-{1..12} [EXITCODE:] 0
+2025-10-17 15:31 ls [EXITCODE:] 0
+2025-10-17 15:32 nano eltex-pg2-v24_part.log  [EXITCODE:] 0
+2025-10-17 15:32 clear [EXITCODE:] 0
+2025-10-17 16:00 nano~/.bashrc [EXITCODE:] 127
+2025-10-17 16:00 nano ~/.bashrc [EXITCODE:] 0
+2025-10-17 16:00 clear [EXITCODE:] 0
+2025-10-17 16:00 ls [EXITCODE:] 0
+2025-10-17 16:02 cd ../../.. [EXITCODE:] 0
+2025-10-17 16:02 pwd [EXITCODE:] 0
+2025-10-17 16:08 export PS1="\033[92m\u@\h $(date +"%H:%M")\033[208m\w\033[92m>\033[0m " [EXITCODE:] 0
+2025-10-17 16:08 ls [EXITCODE:] 0
+2025-10-17 16:08 D1 [EXITCODE:] 127

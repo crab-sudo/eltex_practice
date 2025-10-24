@@ -1,0 +1,378 @@
+
+2025-10-17 15:35 source ~/.bashrc [EXITCODE:] 0
+2025-10-17 15:35 echo test [EXITCODE:] 0
+2025-10-17 15:35 tail eltex-pg2-v24_part3.log  [EXITCODE:] 0
+2025-10-17 15:35 clear [EXITCODE:] 0
+2025-10-17 15:35 rmdir D1 [EXITCODE:] 1
+2025-10-17 15:36 rmdir -r D1 [EXITCODE:] 1
+2025-10-17 15:38 rmdir --ignore-fail-on-non-empty D1 [EXITCODE:] 0
+2025-10-17 15:38 ls [EXITCODE:] 0
+2025-10-17 15:38 rmdir --ignore-fail-on-non-empty D1 [EXITCODE:] 0
+2025-10-17 15:38 rmdir --ignore-fail-on-non-empty D1rm -r D1 [EXITCODE:] 1
+2025-10-17 15:39 rm -r dir D1 [EXITCODE:] 1
+2025-10-17 15:39 rm -r D1 [EXITCODE:] 1
+2025-10-17 15:39 ls [EXITCODE:] 0
+2025-10-17 15:39 clear [EXITCODE:] 0
+2025-10-17 15:39 mkdir -p D1/D2/D3 [EXITCODE:] 0
+2025-10-17 15:39 ls [EXITCODE:] 0
+2025-10-17 15:41 cd ../.. [EXITCODE:] 0
+2025-10-17 15:41 tree [EXITCODE:] 127
+2025-10-17 15:42 sudo apt install tree [EXITCODE:] 1
+2025-10-17 15:42 tree [EXITCODE:] 127
+2025-10-17 15:43 sudo apt update [EXITCODE:] 1
+2025-10-17 15:43 clear [EXITCODE:] 0
+2025-10-17 15:43 tail eltex-pg2-v24_part3.log  [EXITCODE:] 0
+2025-10-17 15:43 clear [EXITCODE:] 0
+2025-10-17 15:44 cd .. [EXITCODE:] 0
+2025-10-17 15:44 ls [EXITCODE:] 0
+2025-10-17 15:59 2025-10-17 15:44 ls [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-17 15:59 screen -ls [EXITCODE:] 0
+2025-10-17 16:00 ls [EXITCODE:] 0
+2025-10-17 16:09 export HISTFILE=~/eltex-pg2-v24_part3.log  [EXITCODE:] 0
+2025-10-17 16:10 export HISTFILE=~/eltex-pg2-v24_part3.log  [EXITCODE:] 0
+2025-10-17 16:11 export PS1="\033[92m\u@\h $(date +"%H:%M")\033[34m \w\033[92m>\033[0m " [EXITCODE:] 0
+2025-10-17 16:12 tail eltex-pg2-v24_part.log  [EXITCODE:] 0
+2025-10-17 16:12 rm eltex-pg2-v24_part.log  [EXITCODE:] 0
+2025-10-17 16:12 ls [EXITCODE:] 0
+2025-10-17 16:12 cd D2 [EXITCODE:] 0
+2025-10-17 16:12 ls [EXITCODE:] 0
+2025-10-17 16:12 rm eltex-pg2-v24_part3.log [EXITCODE:] 0
+2025-10-17 16:12 cd D3 [EXITCODE:] 0
+2025-10-17 16:12 ls [EXITCODE:] 0
+2025-10-17 16:13 rm eltex-pg2-v24_part3.log eltex-pg2-v24_part.log  [EXITCODE:] 0
+2025-10-17 16:13 ls [EXITCODE:] 0
+2025-10-17 16:13 clear [EXITCODE:] 0
+2025-10-17 16:13 cat ~/eltex-pg2-v24_part3.log  [EXITCODE:] 0
+2025-10-17 16:13 clear [EXITCODE:] 0
+2025-10-17 16:13 cd .. [EXITCODE:] 0
+2025-10-17 16:13 ls [EXITCODE:] 0
+2025-10-17 16:13 cd D3 [EXITCODE:] 0
+2025-10-17 16:14 ln ~/D1/D2/file.txt hardlink.txt [EXITCODE:] 0
+2025-10-17 16:14 ls [EXITCODE:] 0
+2025-10-17 16:15 ln -s ~/D1/D2/file.txt softlink.txt [EXITCODE:] 0
+2025-10-17 16:16 ls -l [EXITCODE:] 0
+2025-10-17 16:16 cd .. [EXITCODE:] 0
+2025-10-17 16:17 mv file.txt .. [EXITCODE:] 0
+2025-10-17 16:17 ls [EXITCODE:] 0
+2025-10-17 16:17 cd .. [EXITCODE:] 0
+2025-10-17 16:17 ls [EXITCODE:] 0
+2025-10-17 16:17 cd D2/D3 [EXITCODE:] 0
+2025-10-17 16:17 ls [EXITCODE:] 0
+2025-10-17 16:17 tail hardlink.txt  [EXITCODE:] 0
+2025-10-17 16:17 tail softlink.txt  [EXITCODE:] 1
+2025-10-17 16:17 ls -l [EXITCODE:] 0
+2025-10-17 16:20 echo "Жёсткая ссылка - это, буквально, копия файла, и она работает. Символическая ссылка ссылакет на inode, и при изменении местоположения файла меняется и inode" [EXITCODE:] 0
+2025-10-17 16:21 cd ~/D1 [EXITCODE:] 0
+2025-10-17 16:21 rm -r D2 [EXITCODE:] 0
+2025-10-17 16:21 ls [EXITCODE:] 0
+2025-10-17 16:21 cd .. [EXITCODE:] 0
+2025-10-17 16:21 clear [EXITCODE:] 0
+2025-10-17 16:23 touch '$USER'_part3_gt50M.log [EXITCODE:] 0
+2025-10-17 16:23 ls [EXITCODE:] 0
+2025-10-17 16:23 rm '$USER_part3_gt50M.log'  [EXITCODE:] 0
+2025-10-17 16:24 touch "'$USER'_part3_gt50M.log" [EXITCODE:] 0
+2025-10-17 16:24 ls [EXITCODE:] 0
+2025-10-17 16:25 mv "'eltex-pg2-v24'_part3_gt50M.log" $(USER)_part3_gt50M.log [EXITCODE:] 0
+2025-10-17 16:25 mv "'eltex-pg2-v24'_part3_gt50M.log" $USER_part3_gt50M.log [EXITCODE:] 1
+2025-10-17 16:26 ls [EXITCODE:] 0
+2025-10-17 16:26 mv _part3_gt50M.log $USER_part3_gt50M.log [EXITCODE:] 0
+2025-10-17 16:26 ls [EXITCODE:] 0
+2025-10-17 16:28 touch ${USER}_part3_gt50M.log [EXITCODE:] 0
+2025-10-17 16:28 ls [EXITCODE:] 0
+2025-10-17 16:28 clear [EXITCODE:] 0
+2025-10-17 16:31 sudo find / -type f -size 20M [EXITCODE:] 1
+2025-10-17 16:32 find / -type f -size 20M [EXITCODE:] 1
+2025-10-17 16:38 find / -type f -size 20M | du -h [EXITCODE:] 0
+2025-10-17 16:38 sudo find / -type f -size 20M | du -h [EXITCODE:] 0
+2025-10-17 16:39 find / -type f -size +20M | du -h [EXITCODE:] 0
+2025-10-17 16:40 find / -type f -size -20M | du -h [EXITCODE:] 0
+2025-10-17 16:41 find / -type f -size +20M 2>/dev/null | du -h [EXITCODE:] 0
+2025-10-17 16:50 cd ./D1 [EXITCODE:] 0
+2025-10-17 16:51 cd .. [EXITCODE:] 0
+2025-10-17 16:52 find / -type f -size +20M -print0 | xargs -0 du -h [EXITCODE:] 0
+2025-10-17 16:53 find / -type f -size +20M -print0 2>/dev/null | xargs -0 du -h [EXITCODE:] 0
+2025-10-17 16:55 find / -type f -size +20M -print0 2>/dev/null | xargs -0 du -h > eltex-pg2-v24_part3_gt50M.log  [EXITCODE:] 0
+2025-10-17 16:55 cat eltex-pg2-v24_part3_gt50M.log  [EXITCODE:] 0
+2025-10-17 16:58 find ~ -type f -mtime -1 [EXITCODE:] 0
+2025-10-17 16:59 which find [EXITCODE:] 0
+2025-10-17 17:02 find /usr/bin/find [EXITCODE:] 0
+2025-10-17 17:02 file /usr/bin/find [EXITCODE:] 0
+2025-10-17 17:07 echo "Это биннарный исполняемый файл" [EXITCODE:] 0
+2025-10-17 17:12 file /boot/initrd.img* [EXITCODE:] 0
+2025-10-17 17:14 echo "Это - текстовые архивы cpio" [EXITCODE:] 0
+2025-10-17 17:14 ls [EXITCODE:] 0
+2025-10-17 17:15 nano eltex-pg2-v24_part3.log  [EXITCODE:] 0
+2025-10-17 17:15 clear [EXITCODE:] 0
+ls
+tail eltex-pg2-v24_part.log 
+clear
+echo "export PROMPT_COMMAND='EXIT_CODE=$?; echo "$(date +"%Y-%m-%d %H:%M") $(history 1 | sed "s/^ *[0-9]* *//") [EXIT_CODE:] $EXIT_CODE" >> $HISTFILE'" >> ~/.bashrc
+ls
+echo "export HISTFILE=eltex-pg2-v24_part.log" >> ~/.bashrc
+nano ~/.bashrc
+clear
+screen -ls
+tail eltex-pg2-v24_part.log 
+source ~/.bashrc
+echo test
+tail eltex-pg2-v24_part.log 
+clear
+ls
+echo $HISTSIZE 
+ls .*
+ls -d .*
+echo test
+tail eltex-pg2-v24_part.log 
+DATE=$(date +"%Y-%m-%d")
+echo $DATE
+TIME=$(date +"%H:%M")
+echo $TIME
+DATE_TIME="$DATE $TIME"
+echo $DATE_TIME 
+ls /bin /sbin | grep '[0-9]'
+PS1="/u@/h-$(date +"%H:%M")"
+PS1="\033[92m/u@/h-$(date +"%H:%M")>"
+PS1="\033[92m\u@\h-$(date +"%H:%M")>"
+clear
+export PS1="\033[92m\u@\h-$(date +"%H:%M")>\033[0m"
+export PS1="\033[92m\u@\h-$(date +"%H:%M")> \033[0m"
+export ENV="$HOME/.bashrc_custom"
+touch $HOME/.bashrc_custom
+echo "PS1=$PS1" >> $HOME/.bashrc_custom 
+tail $HOME/.bashrc_custom 
+echo 'PS1="$PS1"' > $HOME/.bashrc_custom 
+tail $HOME/.bashrc_custom 
+clear
+ls
+rmdir $(date +"%Y")[0-9]
+rmdir $(date +"%Y")-[0-9]
+ls
+rmdir $(date +"%Y")-[0-12]
+
+rmdir $(date +"%Y")-[10-12]
+rmdir $(date +"%Y")-10
+rmdir $(date +"%Y")-11
+rmdir $(date +"%Y")-12
+mkdir $(date +"%Y")-[1-12]
+ls
+rmdir '2025-[1-12]'/
+ls
+mkdir $(date +"%Y")-{1..12}
+ls
+nano eltex-pg2-v24_part.log 
+clear
+nano~/.bashrc
+nano ~/.bashrc
+clear
+ls
+cd D1/D2/D3
+ls
+nano ~/.bashrc
+ls
+pwd
+cd ../../..
+pwd
+export PS1="\033[92m\u@\h $(date +"%H:%M")\033[208m\w\033[92m>\033[0m "
+ls
+D1
+cd D1
+ls
+rm eltex-pg2-v24_part.log eltex-pg2-v24_part3.log 
+ls
+rm eltex-pg2-v24_part.log 
+ls
+export HISTFILE=~/eltex-pg2-v24_part3.log 
+export PS1="\033[92m\u@\h $(date +"%H:%M")\033[34m \w\033[92m>\033[0m "
+tail eltex-pg2-v24_part.log 
+rm eltex-pg2-v24_part.log 
+ls
+cd D2
+ls
+rm eltex-pg2-v24_part3.log
+cd D3
+ls
+rm eltex-pg2-v24_part3.log eltex-pg2-v24_part.log 
+ls
+clear
+cat ~/eltex-pg2-v24_part3.log 
+clear
+cd ..
+ls
+cd D3
+ln ~/D1/D2/file.txt hardlink.txt
+ls
+ln -s ~/D1/D2/file.txt softlink.txt
+ls -l
+cd ..
+mv file.txt ..
+ls
+cd ..
+ls
+cd D2/D3
+ls
+tail hardlink.txt 
+tail softlink.txt 
+ls -l
+echo "Жёсткая ссылка - это, буквально, копия файла, и она работает. Символическая ссылка ссылакет на inode, и при изменении местоположения файла меняется и inode"
+cd ~/D1
+rm -r D2
+ls
+cd ..
+clear
+touch '$USER'_part3_gt50M.log
+ls
+rm '$USER_part3_gt50M.log' 
+touch "'$USER'_part3_gt50M.log"
+ls
+mv "'eltex-pg2-v24'_part3_gt50M.log" $(USER)_part3_gt50M.log
+mv "'eltex-pg2-v24'_part3_gt50M.log" $USER_part3_gt50M.log
+ls
+mv _part3_gt50M.log $USER_part3_gt50M.log
+ls
+touch ${USER}_part3_gt50M.log
+ls
+clear
+sudo find / -type f -size 20M
+find / -type f -size 20M
+find / -type f -size 20M | du -h
+sudo find / -type f -size 20M | du -h
+find / -type f -size +20M | du -h
+find / -type f -size -20M | du -h
+find / -type f -size +20M 2>/dev/null | du -h
+cd ./D1
+cd ..
+find / -type f -size +20M -print0 | xargs -0 du -h
+find / -type f -size +20M -print0 2>/dev/null | xargs -0 du -h
+find / -type f -size +20M -print0 2>/dev/null | xargs -0 du -h > eltex-pg2-v24_part3_gt50M.log 
+cat eltex-pg2-v24_part3_gt50M.log 
+find ~ -type f -mtime -1
+which find
+find /usr/bin/find
+file /usr/bin/find
+echo "Это биннарный исполняемый файл"
+file /boot/initrd.img*
+echo "Это - текстовые архивы cpio"
+ls
+nano eltex-pg2-v24_part3.log 
+clear
+exit
+2025-10-17 17:16 screen -r 2767969.whoami_part2  [EXITCODE:] 0
+2025-10-17 17:16 2025-10-17 17:16 screen -r 2767969.whoami_part2  [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-17 17:16 screen -ls [EXITCODE:] 0
+2025-10-17 17:16 screen -d 2843645.pts-85.eltex-2025-autumn  [EXITCODE:] 0
+2025-10-17 17:16 screen [EXITCODE:] 0
+2025-10-17 17:16 screen -ls [EXITCODE:] 0
+screen -ls
+ls
+screen -r 2767969.whoami_part2 
+screen
+screen -ls
+exit
+2025-10-17 19:19 exit [EXITCODE:] 0
+2025-10-17 20:38 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-17 20:38 groups user1 [EXITCODE:] 1
+2025-10-17 20:38 su user1 [EXITCODE:] 1
+2025-10-17 20:38 su user3 [EXITCODE:] 1
+2025-10-17 20:39 users [EXITCODE:] 0
+2025-10-17 20:39 clear [EXITCODE:] 0
+2025-10-17 20:40 useradd --shell /bin/bash user1 [EXITCODE:] 127
+2025-10-17 20:40 sudo useradd --shell /bin/bash user1 [EXITCODE:] 1
+2025-10-17 20:41 sudo useradd -m -s /bin/bash user1 [EXITCODE:] 1
+2025-10-17 21:01 ssh root@172.16.9.224 [EXITCODE:] 2
+ssh root@172.16.9.224
+groups user1
+su user1
+su user3
+users
+clear
+useradd --shell /bin/bash user1
+sudo useradd --shell /bin/bash user1
+sudo useradd -m -s /bin/bash user1
+ssh root@172.16.9.224
+exit
+2025-10-18 13:36 exit [EXITCODE:] 0
+2025-10-18 13:49 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+exit
+2025-10-18 16:40 exit [EXITCODE:] 0
+2025-10-18 16:58 2025-10-18 16:40 exit [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-18 17:33 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-18 18:26 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+exit
+ssh root@172.16.9.224
+2025-10-19 16:24 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-19 18:12 ssh root@172.16.9.224 [EXITCODE:] 0
+exit
+2025-10-19 19:05 exit [EXITCODE:] 0
+2025-10-19 19:06 2025-10-19 18:12 ssh root@172.16.9.224 [EXITCODE:] 0 [EXITCODE:] 127
+2025-10-19 20:49 2025-10-19 19:06 2025-10-19 18:12 ssh root@172.16.9.224 [EXITCODE:] 0 [EXITCODE:] 127 [EXITCODE:] 0
+2025-10-19 20:55 ssh root@172.16.9.224 [EXITCODE:] 1
+ssh root@172.16.9.224
+exit
+2025-10-19 18:12 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+2025-10-19 23:21 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-19 23:50 ssh root@172.16.9.224 [EXITCODE:] 0
+exit
+2025-10-20 14:17 exit [EXITCODE:] 0
+2025-10-20 15:01 2025-10-20 14:17 exit [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-20 15:43 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+exit
+2025-10-20 16:56 exit [EXITCODE:] 0
+ssh root@172.16.9.224
+2025-10-20 18:01 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+exit
+2025-10-21 13:40 exit [EXITCODE:] 0
+2025-10-21 15:45 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+exit
+2025-10-21 20:12 exit [EXITCODE:] 0
+2025-10-21 20:26 2025-10-21 20:12 exit [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-21 21:15 2025-10-21 20:26 2025-10-21 20:12 exit [EXITCODE:] 0 [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-21 21:48 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+exit
+ssh root@172.16.9.224
+ssh root@172.16.9.224
+2025-10-21 23:03 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-21 23:44 ssh root@172.16.9.224 [EXITCODE:] 0
+exit
+2025-10-22 14:52 exit [EXITCODE:] 0
+2025-10-22 15:00 ssh root@172.16.9.224 [EXITCODE:] 127
+ssh root@172.16.9.224
+exit
+2025-10-22 16:24 exit [EXITCODE:] 0
+ssh root@172.16.9.224
+2025-10-22 17:05 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-22 17:20 ssh root@172.16.9.224 [EXITCODE:] 1
+exit
+2025-10-23 16:27 exit [EXITCODE:] 0
+2025-10-23 16:27 2025-10-22 17:20 ssh root@172.16.9.224 [EXITCODE:] 1 [EXITCODE:] 127
+2025-10-23 16:53 2025-10-23 16:27 2025-10-22 17:20 ssh root@172.16.9.224 [EXITCODE:] 1 [EXITCODE:] 127 [EXITCODE:] 0
+2025-10-23 17:27 ssh root@172.16.9.224 [EXITCODE:] 0
+ssh root@172.16.9.224
+exit
+2025-10-22 17:20 ssh root@172.16.9.224 [EXITCODE:] 1
+ssh root@172.16.9.224
+2025-10-23 19:13 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-24 11:33 2025-10-23 19:13 ssh root@172.16.9.224 [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-24 13:46 2025-10-24 11:33 2025-10-23 19:13 ssh root@172.16.9.224 [EXITCODE:] 0 [EXITCODE:] 0 [EXITCODE:] 0
+ssh root@172.16.9.224
+2025-10-24 14:54 ssh root@172.16.9.224 [EXITCODE:] 0
+2025-10-24 14:54 clear [EXITCODE:] 0
+2025-10-24 14:54 ls [EXITCODE:] 0
+2025-10-24 14:55 tail-25 practice2_.log  [EXITCODE:] 127
+2025-10-24 14:55 tail -25 practice2_.log  [EXITCODE:] 0
+2025-10-24 14:55 tail  practice2_.log  [EXITCODE:] 0
+2025-10-24 14:55 tail practice2_.log  [EXITCODE:] 0
+2025-10-24 14:55 clear [EXITCODE:] 0
+2025-10-24 14:55 ls [EXITCODE:] 0
+2025-10-24 14:56 tail eltex-pg2-v24_part.log  [EXITCODE:] 0
+2025-10-24 14:56 clear [EXITCODE:] 0
+2025-10-24 14:56 ls [EXITCODE:] 0
+2025-10-24 15:14 2025-10-24 14:56 ls [EXITCODE:] 0 [EXITCODE:] 0
+2025-10-24 15:16 scp eltex-pg2-v24_part.log root@172.16.9.224:/root/eltex_practice/module1/task2/ [EXITCODE:] 0
+2025-10-24 15:17 scp eltex-pg2-v24_part3.log root@172.16.9.224:/root/eltex_practice/module1/task2/ [EXITCODE:] 0
