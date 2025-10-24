@@ -1,0 +1,227 @@
+
+2025-10-23 19:14 echo > practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
+2025-10-23 19:14 clear	 [EXITCODE:] 0
+2025-10-23 19:19 journalctl -b --since "$(uptime -s)" --until "+20s"	 [EXITCODE:] 130
+2025-10-23 19:19 tail practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
+2025-10-23 19:19 clear	 [EXITCODE:] 0
+2025-10-23 19:23 find / -name "auth.log"	 [EXITCODE:] 0
+2025-10-23 19:26 head /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:29 awk 'print $1' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 19:29 awk '{print $1}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:32 head /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:35 awk '{print $3, $4}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:35 awk '{print $3, $4, $5}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:36 head /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:39 awk '{print $3, $5}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:40 head /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:40 awk '{print $3, $5, $6}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:40 awk '{print $3, $5, $6}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:40 awk '{print $3, $5, $6}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:40 head /var/lab/auth.log	 [EXITCODE:] 1
+2025-10-23 19:41 head /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:42 awk -F: 'print $1, $3' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 19:42 awk -F: '{print $1, $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:43 tail /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:43 awk -F:  '{print $1, $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:43 awk -F': ' '{print $1, $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:44 awk -F': ' '{print $1, $3}' /var/log/auth.log	 [EXITCODE:] 130
+2025-10-23 19:44 tail /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:49 tail /var/log/auth.log	 [EXITCODE:] 130
+2025-10-23 19:49 sed 's/[*]/[]' /var/log/auth.log | awk -F': ' '{print $1, $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:50 sed 's/[*]/[]' /var/log/auth.log | awk -F': ' '{print $1, $3}'	 [EXITCODE:] 0
+2025-10-23 19:51 sed 's/[*]/[]' /var/log/auth.log | awk -F': ' '{print $1, $3}'	 [EXITCODE:] 130
+2025-10-23 19:52 sed 's/[*]/[]/' /var/log/auth.log | awk -F': ' '{print $1, $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 19:52 sed 's/[*]/[]/' /var/log/auth.log | awk -F': ' '{print $1, $3}'	 [EXITCODE:] 0
+2025-10-23 19:52 awk -F': ' '{print $1, $3 | sed 's/[*]/[]/'}' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 19:55 * awk -F': ' '{print $1, $3}' /var/log/auth.log	 [EXITCODE:] 130
+2025-10-23 20:04 awk -F': ' '{split($1, a, " ") print a[3], $3}' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 20:04 awk -F': ' '{split($1, a, " ") print $a[3], $3}' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 20:05 awk -F': ' '{split($1, a, " ") print a[2], $3}' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 20:05 awk -F': ' '{split($1, a, " ") print $(a[3]), $3}' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 20:05 awk -F': ' '{split($1, a, " ") print ${a[3]}, $3}' /var/log/auth.log	 [EXITCODE:] 1
+2025-10-23 20:06 awk -F': ' '{split($1, a, " "); print a[3], $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 20:07 awk -F': ' '{split($1, a, " "); printf "%15-s : %s", a[3], $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 20:07 awk -F': ' '{split($1, a, " "); printf "%15-s : %s
+", a[3], $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 20:08 tail -50 /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 20:08 awk -F': ' '{split($1, a, " "); printf "%15-s : %s
+", a[3], $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 20:09 awk -F': ' '{split($1, a, " "); printf "%20-s : %s
+", a[3], $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 20:09 awk -F': ' '{split($1, a, " "); printf "%20-s : %s
+", a[3], $3}' /var/log/auth.log	 [EXITCODE:] 130
+2025-10-23 20:09 awk -F': ' '{split($1, a, " "); printf "%20-s : %s
+", a[3], $3}' /var/log/auth.log	 [EXITCODE:] 130
+2025-10-23 20:09 awk -F': ' '{split($1, a, " "); printf "%15-s : %s
+", a[3], $3}' /var/log/auth.log	 [EXITCODE:] 0
+2025-10-23 20:19 awk -F': ' '{split($1, a, " "); printf "%15-s : %s
+", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]/+\]//[/]/'	 [EXITCODE:] 1
+2025-10-23 20:27 awk -F': ' '{split($1, a, " "); printf "%15-s : %s
+", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]\+\]//'	 [EXITCODE:] 0
+2025-10-23 20:28 awk -F': ' '{split($1, a, " "); printf "%20-s : %s
+", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]\+\]//'	 [EXITCODE:] 0
+2025-10-23 20:28 awk -F': ' '{split($1, a, " "); printf "%25-s : %s
+", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort	 [EXITCODE:] 0
+2025-10-23 20:32 awk -F': ' '{ split($1, a, " "); printf "%25-s : %s
+", a[3], $2 }' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort	 [EXITCODE:] 0
+2025-10-23 20:33 echo "Команда корректно выводит содержимое файла"	 [EXITCODE:] 0
+2025-10-23 20:34 tail practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
+2025-10-23 20:35 clear	 [EXITCODE:] 0
+2025-10-23 20:36 clear	 [EXITCODE:] 130
+2025-10-23 20:36 awk -F': ' '{ split($1, a, " "); printf "%25-s : %s
+", a[3], $2 }' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort	 [EXITCODE:] 0
+2025-10-23 20:38 awk -F': ' '{ split($1, a, " "); print a[3] }' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort	 [EXITCODE:] 0
+2025-10-23 20:38 awk -F': ' '{ split($1, a, " "); print a[3] }' /var/log/auth.log \ | sed 's/\[[0-9]\+\]//' | sort | uniq -c	 [EXITCODE:] 0
+2025-10-23 20:39 awk -F': ' '{ split($1, a, " "); print a[3] }' /var/log/auth.log \ | sed 's/\[[0-9]\+\]//' | sort | uniq -c	 [EXITCODE:] 0
+2025-10-23 20:41 awk -F': ' '{ split($1, a, " "); print a[3] }' /var/log/auth.log  | sed 's/\[[0-9]\+\]//' | sort | uniq -c  | sort -nr	 [EXITCODE:] 0
+2025-10-23 20:43 tail /etc/passwd	 [EXITCODE:] 0
+2025-10-23 20:46 tail /etc/passwd	 [EXITCODE:] 130
+2025-10-23 20:46 tail /etc/passwd	 [EXITCODE:] 130
+2025-10-23 21:14 awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3}' /etc/passwd | awk -F: '$4 ~ "(^|,)"user"(,|$)" {groups = (groups ? groups"," : "") $1} END {print uid", " user", " groups}' /etc/group	 [EXITCODE:] 0
+2025-10-23 21:14 awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3}' /etc/passwd | awk -F: '$4 ~ "(^|,)"user"(,|$)" {groups = (groups ? groups"," : "") $1} END {print uid", " user", " groups"
+"}' /etc/group	 [EXITCODE:] 0
+2025-10-23 21:19 awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3}' /etc/passwd | awk -F: '$4 ~ "(^|,)"user"(,|$)" {groups = (groups ? groups"," : "") $1} END {print uid", " user", " groups"
+"}' /etc/group	 [EXITCODE:] 130
+2025-10-23 21:19 awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3}' /etc/passwd | awk -F: '$4 ~ "(^|,)"user"(,|$)" {groups = (groups ? groups"," : "") $1} END {print uid", " user", " groups"
+"}' /etc/group	 [EXITCODE:] 130
+2025-10-23 21:20 awk -F: '$7=="/usr/sbin/nologin" {print $3, $1}' /etc/passwd	 [EXITCODE:] 0
+2025-10-23 21:42 awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3; groups="";\
+while((getline line < "etc/group") > 0) { \
+split(line, arr, ":"); \
+split(arr[4], members, ","); \
+for(i in members) if(members[i]==user) {groups=groups (groups?",":"") arr[1]}; \
+} close("etc/group"); print uid ", " user ", " groups}' /etc/passwd | sort -rn	 [EXITCODE:] 0
+2025-10-23 21:43 awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3; groups="";\
+while((getline line < "etc/group") > 0) { \
+split(line, arr, ":"); \
+split(arr[4], members, ","); \
+for(i in members) if(members[i]==user) {groups=groups (groups?",":"") arr[1]}; \
+\} close("etc/group"); print uid ", " user ", " groups}' /etc/passwd | sort -rn	 [EXITCODE:] 0
+2025-10-23 21:45 awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3; groups="";\
+while((getline line < "etc/group") > 0) { \
+split(line, arr, ":"); \
+split(arr[4], members, ","); \
+for(i in members) if(members[i]==user) {groups=groups (groups?",":"") arr[1]}; \
+if(arr[3]==uid) {groups=groups (groups?",":"") arr[1]};} close("etc/group"); print uid ", " user ", " groups}' /etc/passwd | sort -rn	 [EXITCODE:] 0
+2025-10-23 21:46 tail practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
+2025-10-23 21:46 clear	 [EXITCODE:] 0
+2025-10-23 21:46 tail practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
+2025-10-23 21:46 clear	 [EXITCODE:] 0
+2025-10-23 21:47 sudo dmesg	 [EXITCODE:] 0
+2025-10-23 21:47 clear	 [EXITCODE:] 0
+2025-10-23 21:48 sudo dmesg	 [EXITCODE:] 0
+2025-10-23 21:48 clear	 [EXITCODE:] 0
+2025-10-23 21:50 sudo dmesg | grep 'kernel'	 [EXITCODE:] 0
+2025-10-23 21:54 vi practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
+2025-10-23 21:54 clear	 [EXITCODE:] 0
+2025-10-23 21:54 wc -l /var/log/kern.log	 [EXITCODE:] 0
+2025-10-23 22:01 awk '/^Commandline:/ {cmd=$0} /^Start-Date:/ {start=$0} /^End-Date:/ {end=$0, print cmd " ; " start " ; " end}' /var/log/apt/history.log 	 [EXITCODE:] 1
+2025-10-23 22:03 tail /var/log/apt/history.log 	 [EXITCODE:] 0
+2025-10-23 22:08 awk ' /^Commandline:/ {cmd=$0} /^Start-Date:/ {start=$0} /^End-Date:/ {end=$0; print cmd " ; " start " ; " end} ' /var/log/apt/history.log	 [EXITCODE:] 0
+2025-10-23 22:09 clear	 [EXITCODE:] 0
+clear
+cat practice2_eltex-pg2-v24_part2.log 
+echo > practice2_eltex-pg2-v24_part2.log 
+clear
+journalctl -b --since "$(uptime -s)" --until "+20s"
+tail practice2_eltex-pg2-v24_part2.log 
+clear
+find / -name "auth.log"
+head /var/log/auth.log
+awk 'print $1' /var/log/auth.log
+awk '{print $1}' /var/log/auth.log
+head /var/log/auth.log
+awk '{print $3, $4}' /var/log/auth.log
+awk '{print $3, $4, $5}' /var/log/auth.log
+head /var/log/auth.log
+awk '{print $3, $5}' /var/log/auth.log
+head /var/log/auth.log
+awk '{print $3, $5, $6}' /var/log/auth.log
+head /var/lab/auth.log
+head /var/log/auth.log
+awk -F: 'print $1, $3' /var/log/auth.log
+awk -F: '{print $1, $3}' /var/log/auth.log
+tail /var/log/auth.log
+awk -F:  '{print $1, $3}' /var/log/auth.log
+awk -F': ' '{print $1, $3}' /var/log/auth.log
+tail /var/log/auth.log
+sed 's/[*]/[]' /var/log/auth.log | awk -F': ' '{print $1, $3}' /var/log/auth.log
+sed 's/[*]/[]' /var/log/auth.log | awk -F': ' '{print $1, $3}'
+sed 's/[*]/[]/' /var/log/auth.log | awk -F': ' '{print $1, $3}' /var/log/auth.log
+sed 's/[*]/[]/' /var/log/auth.log | awk -F': ' '{print $1, $3}'
+awk -F': ' '{print $1, $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " ") print a[3], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " ") print $a[3], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " ") print a[2], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " ") print $(a[3]), $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " ") print ${a[3]}, $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " "); print a[3], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " "); printf "%15-s : %s", a[3], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " "); printf "%15-s : %s\n", a[3], $3}' /var/log/auth.log
+tail -50 /var/log/auth.log
+awk -F': ' '{split($1, a, " "); printf "%15-s : %s\n", a[3], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " "); printf "%20-s : %s\n", a[3], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " "); printf "%15-s : %s\n", a[3], $3}' /var/log/auth.log
+awk -F': ' '{split($1, a, " "); printf "%15-s : %s\n", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]/+\]//[/]/'
+awk -F': ' '{split($1, a, " "); printf "%15-s : %s\n", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]\+\]//'
+awk -F': ' '{split($1, a, " "); printf "%20-s : %s\n", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]\+\]//'
+awk -F': ' '{split($1, a, " "); printf "%25-s : %s\n", a[3], $3}' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort
+awk -F': ' '{ split($1, a, " "); printf "%25-s : %s\n", a[3], $2 }' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort
+echo "Команда корректно выводит содержимое файла"
+tail practice2_eltex-pg2-v24_part2.log 
+clear
+awk -F': ' '{ split($1, a, " "); printf "%25-s : %s\n", a[3], $2 }' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort
+awk -F': ' '{ split($1, a, " "); print a[3] }' /var/log/auth.log | sed 's/\[[0-9]\+\]//' | sort
+awk -F': ' '{ split($1, a, " "); print a[3] }' /var/log/auth.log \ | sed 's/\[[0-9]\+\]//' | sort | uniq -c
+awk -F': ' '{ split($1, a, " "); print a[3] }' /var/log/auth.log  | sed 's/\[[0-9]\+\]//' | sort | uniq -c  | sort -nr
+tail /etc/passwd
+awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3}' /etc/passwd | awk -F: '$4 ~ "(^|,)"user"(,|$)" {groups = (groups ? groups"," : "") $1} END {print uid", " user", " groups}' /etc/group
+awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3}' /etc/passwd | awk -F: '$4 ~ "(^|,)"user"(,|$)" {groups = (groups ? groups"," : "") $1} END {print uid", " user", " groups"\n"}' /etc/group
+awk -F: '$7=="/usr/sbin/nologin" {print $3, $1}' /etc/passwd
+awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3; groups="";\
+while((getline line < "etc/group") > 0) { \
+split(line, arr, ":"); \
+split(arr[4], members, ","); \
+for(i in members) if(members[i]==user) {groups=groups (groups?",":"") arr[1]}; \
+} close("etc/group"); print uid ", " user ", " groups}' /etc/passwd | sort -rn
+awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3; groups="";\
+while((getline line < "etc/group") > 0) { \
+split(line, arr, ":"); \
+split(arr[4], members, ","); \
+for(i in members) if(members[i]==user) {groups=groups (groups?",":"") arr[1]}; \
+\} close("etc/group"); print uid ", " user ", " groups}' /etc/passwd | sort -rn
+awk -F: '$7=="/usr/sbin/nologin" {user=$1; uid=$3; groups="";\
+while((getline line < "etc/group") > 0) { \
+split(line, arr, ":"); \
+split(arr[4], members, ","); \
+for(i in members) if(members[i]==user) {groups=groups (groups?",":"") arr[1]}; \
+if(arr[3]==uid) {groups=groups (groups?",":"") arr[1]};} close("etc/group"); print uid ", " user ", " groups}' /etc/passwd | sort -rn
+tail practice2_eltex-pg2-v24_part2.log 
+clear
+tail practice2_eltex-pg2-v24_part2.log 
+clear
+sudo dmesg
+clear
+sudo dmesg
+clear
+sudo dmesg | grep 'kernel'
+vi practice2_eltex-pg2-v24_part2.log 
+clear
+wc -l /var/log/kern.log
+awk '/^Commandline:/ {cmd=$0} /^Start-Date:/ {start=$0} /^End-Date:/ {end=$0, print cmd " ; " start " ; " end}' /var/log/apt/history.log 
+tail /var/log/apt/history.log 
+awk ' /^Commandline:/ {cmd=$0} /^Start-Date:/ {start=$0} /^End-Date:/ {end=$0; print cmd " ; " start " ; " end} ' /var/log/apt/history.log
+clear
+2025-10-24 11:33 clear	 [EXITCODE:] 0
+2025-10-24 11:33 clear	 [EXITCODE:] 0
+2025-10-24 11:35 git config --global user.name "crab-sudo"	 [EXITCODE:] 0
+2025-10-24 11:35 git config --global user.email "ozucoya@mail.ri"	 [EXITCODE:] 0
+2025-10-24 11:43 git config --global init.defaultBranch main	 [EXITCODE:] 0
+2025-10-24 13:46 2025-10-24 11:43 git config --global init.defaultBranch main	 [EXITCODE:] 0	 [EXITCODE:] 0
+2025-10-24 13:46 clear	 [EXITCODE:] 0
+2025-10-24 13:46 ls	 [EXITCODE:] 0
+2025-10-24 13:46 touch practice2_eltex-pg2-v24_part3.log	 [EXITCODE:] 0
+2025-10-24 13:47 vi ~/.bashrc 	 [EXITCODE:] 0
+git config --global user.name "crab-sudo"
+git config --global user.email "ozucoya@mail.ri"
+git config --global init.defaultBranch main

@@ -1,0 +1,261 @@
+2025-10-24 13:47 source ~/.bashrc 	 [EXITCODE:] 0
+2025-10-24 13:47 echo test	 [EXITCODE:] 0
+2025-10-24 13:47 cat practice2_eltex-pg2-v24_part3.log 	 [EXITCODE:] 0
+2025-10-24 13:47 clear	 [EXITCODE:] 0
+2025-10-24 13:48 git config --global user.name "crab-sudo"	 [EXITCODE:] 0
+2025-10-24 13:49 git config --global user.email "ozucoya@mail.ru"	 [EXITCODE:] 0
+2025-10-24 13:49 git config --global init.defaultBranch main	 [EXITCODE:] 0
+2025-10-24 13:50 sudo update	 [EXITCODE:] 1
+2025-10-24 13:50 sudo apt update	 [EXITCODE:] 0
+2025-10-24 13:51 sudo apt install git gh	 [EXITCODE:] 0
+2025-10-24 13:52 git --version	 [EXITCODE:] 0
+2025-10-24 14:01 shh-key-gen -t ed25519 -f ~/.ssh/crab-sudo	 [EXITCODE:] 127
+2025-10-24 14:01 shh-keygen -t ed25519 -f ~/.ssh/crab-sudo	 [EXITCODE:] 127
+2025-10-24 14:03 sudo apt search ssh	 [EXITCODE:] 0
+2025-10-24 14:04 sudo apt install openssg-client	 [EXITCODE:] 100
+2025-10-24 14:05 sudo apt install openssh-client	 [EXITCODE:] 0
+2025-10-24 14:05 clear	 [EXITCODE:] 0
+2025-10-24 14:05 ssh --version	 [EXITCODE:] 255
+2025-10-24 14:07 ssh-keygen -t ed25519 -f ~/.ssh/crab-sudo	 [EXITCODE:] 0
+2025-10-24 14:09 cd ~/.ssh/	 [EXITCODE:] 0
+2025-10-24 14:09 ls	 [EXITCODE:] 0
+2025-10-24 14:09 ls /crab-sudo	 [EXITCODE:] 2
+2025-10-24 14:09 ls crab-sudo/	 [EXITCODE:] 2
+2025-10-24 14:09 cd crab-sudo	 [EXITCODE:] 1
+2025-10-24 14:10 cd ~	 [EXITCODE:] 0
+2025-10-24 14:10 clear	 [EXITCODE:] 0
+2025-10-24 14:11 cd ~/.ssh	 [EXITCODE:] 0
+2025-10-24 14:11 ls	 [EXITCODE:] 0
+2025-10-24 14:11 cat crab-sudo.pub 	 [EXITCODE:] 0
+2025-10-24 14:11 cd ~	 [EXITCODE:] 0
+2025-10-24 14:17 gh auth login	 [EXITCODE:] 0
+2025-10-24 14:18 gh auth setup-git --hostname github.com	 [EXITCODE:] 0
+2025-10-24 14:18 gh auth status	 [EXITCODE:] 0
+2025-10-24 14:19 gh repo create --public eltex_practice	 [EXITCODE:] 0
+2025-10-24 14:20 mkdir ~/eltex_practice	 [EXITCODE:] 0
+2025-10-24 14:20 cd ~/eltex_practice/	 [EXITCODE:] 0
+2025-10-24 14:21 echo "# Репозиторий для практик Элтекс" >> README.md	 [EXITCODE:] 0
+2025-10-24 14:21 ls	 [EXITCODE:] 0
+2025-10-24 14:22 git init	 [EXITCODE:] 0
+2025-10-24 14:24 git add README.md	 [EXITCODE:] 0
+2025-10-24 14:25 git commit -m "first commit"	 [EXITCODE:] 0
+2025-10-24 14:26 git branch -M main	 [EXITCODE:] 0
+2025-10-24 14:41 git remote add origin https://github.com/crab-sudo/eltex_practice.git	 [EXITCODE:] 0
+2025-10-24 14:43 git remote -v	 [EXITCODE:] 0
+2025-10-24 14:43 git status	 [EXITCODE:] 0
+2025-10-24 14:44 git -u origin main	 [EXITCODE:] 129
+2025-10-24 14:44 git push -u origin main	 [EXITCODE:] 0
+2025-10-24 14:47 mkdir -p module1/task1	 [EXITCODE:] 0
+2025-10-24 14:47 mkdir module1/task2	 [EXITCODE:] 0
+2025-10-24 14:48 mkdir module1/task3	 [EXITCODE:] 0
+2025-10-24 15:07 clear	 [EXITCODE:] 0
+2025-10-24 15:10 vi ~/practice2_eltex-pg2-v24_part3.log 	 [EXITCODE:] 0
+2025-10-24 15:13 ls	 [EXITCODE:] 0
+2025-10-24 15:17 cd module1/	 [EXITCODE:] 0
+2025-10-24 15:17 cd task2	 [EXITCODE:] 0
+2025-10-24 15:17 l	 [EXITCODE:] 0
+2025-10-24 15:17 la	 [EXITCODE:] 0
+2025-10-24 15:18 ls	 [EXITCODE:] 0
+2025-10-24 15:18 clear	 [EXITCODE:] 0
+2025-10-24 15:18 ls	 [EXITCODE:] 0
+2025-10-24 15:19 cd ../task3	 [EXITCODE:] 0
+2025-10-24 15:19 ls	 [EXITCODE:] 0
+2025-10-24 15:20 vi ~/practice2_eltex-pg2-v24_part3.log 	 [EXITCODE:] 0
+2025-10-24 15:20 clear	 [EXITCODE:] 0
+2025-10-24 15:20 cd ..	 [EXITCODE:] 0
+2025-10-24 15:20 cd task1	 [EXITCODE:] 0
+2025-10-24 15:21 touch readme.txt	 [EXITCODE:] 0
+2025-10-24 15:21 touch readme.txt	 [EXITCODE:] 130
+2025-10-24 15:21 "	 [EXITCODE:] 130
+2025-10-24 15:23 echo "Отчёт к первой практике сделаю немного позже" > readme.txt 	 [EXITCODE:] 0
+2025-10-24 15:23 cat readme.txt 	 [EXITCODE:] 0
+2025-10-24 15:23 clear	 [EXITCODE:] 0
+2025-10-24 15:23 cd ../..	 [EXITCODE:] 0
+2025-10-24 15:23 git add .	 [EXITCODE:] 0
+2025-10-24 15:24 git status"	 [EXITCODE:] 130
+2025-10-24 15:24 git status	 [EXITCODE:] 0
+2025-10-24 15:24 git commit "Добавил отчёты к первой практике 2 и 3 разделы"	 [EXITCODE:] 1
+2025-10-24 15:25 git add .	 [EXITCODE:] 0
+2025-10-24 15:26 git add .	 [EXITCODE:] 130
+clear
+ls
+touch practice2_eltex-pg2-v24_part3.log
+vi ~/.bashrc 
+source ~/.bashrc 
+echo test
+cat practice2_eltex-pg2-v24_part3.log 
+clear
+git config --global user.name "crab-sudo"
+git config --global user.email "ozucoya@mail.ru"
+git config --global init.defaultBranch main
+sudo update
+sudo apt update
+sudo apt install git gh
+git --version
+shh-key-gen -t ed25519 -f ~/.ssh/crab-sudo
+shh-keygen -t ed25519 -f ~/.ssh/crab-sudo
+sudo apt search ssh
+sudo apt install openssg-client
+sudo apt install openssh-client
+clear
+ssh --version
+ssh-keygen -t ed25519 -f ~/.ssh/crab-sudo
+cd ~/.ssh/
+ls
+ls /crab-sudo
+ls crab-sudo/
+cd crab-sudo
+cd ~
+clear
+cd ~/.ssh
+ls
+cat crab-sudo.pub 
+cd ~
+gh auth login
+gh auth setup-git --hostname github.com
+gh auth status
+gh repo create --public eltex_practice
+mkdir ~/eltex_practice
+cd ~/eltex_practice/
+echo "# Репозиторий для практик Элтекс" >> README.md
+ls
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/crab-sudo/eltex_practice.git
+git remote -v
+git status
+git -u origin main
+git push -u origin main
+mkdir -p module1/task1
+mkdir module1/task2
+mkdir module1/task3
+scp -P 44556 eltex-pg2-v24@217.71.138.1:/root/eltex-pg2-v24_part.log module1/task2/
+scp eltex-pg2-v24@217.71.138.1:/root/eltex-pg2-v24_part.log module1/task2/
+clear
+scp eltex-pg2-v24@217.71.138.1:/root/eltex-pg2-v24_part.log /root/eltex_practice/module1/task2/
+vi ~/practice2_eltex-pg2-v24_part3.log 
+ls
+cd module1/
+cd task2
+l
+la
+ls
+rm eltex-pg2-v24_part3.log 
+clear
+ls
+cd ../task3
+ls
+vi ~/practice2_eltex-pg2-v24_part3.log 
+clear
+cd ..
+cd task1
+touch readme.txt
+"
+
+echo "Отчёт к первой практике сделаю немного позже" > readme.txt 
+cat readme.txt 
+clear
+cd ../..
+git add .
+git status"
+git status
+git commit "Добавил отчёты к первой практике 2 и 3 разделы"
+git add .
+exit
+2025-10-24 15:26 exit	 [EXITCODE:] 0
+2025-10-24 15:27 clear	 [EXITCODE:] 0
+2025-10-24 15:27 cd eltex_practice/	 [EXITCODE:] 0
+2025-10-24 15:27 git add .	 [EXITCODE:] 0
+2025-10-24 15:28 git commit -m "Отчёты к пректике 1 разделы 2 и 3"	 [EXITCODE:] 0
+2025-10-24 15:28 git push	 [EXITCODE:] 0
+clear
+cd eltex_practice/
+git add .
+git commit -m "Отчёты к пректике 1 разделы 2 и 3"
+git push
+exit
+2025-10-24 15:34 exit	 [EXITCODE:] 0
+2025-10-24 15:34 clear	 [EXITCODE:] 0
+2025-10-24 15:35 mkdir ~/eltex_practice_clone && cd eltex_practice_clone	 [EXITCODE:] 0
+2025-10-24 15:37 git clone https://github.com/crab-sudo/eltex_practice.git .	 [EXITCODE:] 0
+2025-10-24 15:37 ls	 [EXITCODE:] 0
+2025-10-24 15:38 cd ../..	 [EXITCODE:] 0
+2025-10-24 15:38 cd ~/eltex_practice/	 [EXITCODE:] 0
+2025-10-24 15:38 touch file2.txt	 [EXITCODE:] 0
+2025-10-24 15:39 git add .	 [EXITCODE:] 0
+2025-10-24 15:39 git commit -m "Внёс изменения в основной каталог"	 [EXITCODE:] 0
+2025-10-24 15:39 git push	 [EXITCODE:] 0
+2025-10-24 15:40 cd ~/eltex_practice_clone/	 [EXITCODE:] 0
+2025-10-24 15:40 ls	 [EXITCODE:] 0
+2025-10-24 15:40 clear	 [EXITCODE:] 0
+2025-10-24 16:09 2025-10-24 15:40 clear	 [EXITCODE:] 0	 [EXITCODE:] 0
+2025-10-24 16:09 clear	 [EXITCODE:] 0
+2025-10-24 16:10 cd eltex_practice_clone/	 [EXITCODE:] 0
+2025-10-24 16:11 ls	 [EXITCODE:] 0
+2025-10-24 16:13 git fetch	 [EXITCODE:] 0
+2025-10-24 16:13 git log origin/main	 [EXITCODE:] 0
+2025-10-24 16:15 git diff main origin/main	 [EXITCODE:] 0
+2025-10-24 16:16 git merge	 [EXITCODE:] 0
+clear
+cd eltex_practice_clone/
+ls
+git fetch
+git log origin/main
+git diff main origin/main
+git merge
+exit
+2025-10-24 17:04 exit	 [EXITCODE:] 0
+2025-10-24 17:04 clear	 [EXITCODE:] 0
+2025-10-24 17:06 ls	 [EXITCODE:] 0
+2025-10-24 17:06 cd eltex_practice	 [EXITCODE:] 0
+2025-10-24 17:06 ls	 [EXITCODE:] 0
+2025-10-24 17:07 mkdir -p module2/test1	 [EXITCODE:] 0
+2025-10-24 17:07 mkdir module2/test2	 [EXITCODE:] 0
+2025-10-24 17:07 mkdir module2/test3	 [EXITCODE:] 0
+2025-10-24 17:07 cd module2/	 [EXITCODE:] 0
+2025-10-24 17:07 ls	 [EXITCODE:] 0
+2025-10-24 17:10 cd ~	 [EXITCODE:] 0
+2025-10-24 17:11 cp practice2_eltex-pg2-v24_part1.log ~/eltex_practice/module2/test1/	 [EXITCODE:] 0
+2025-10-24 17:11 ls	 [EXITCODE:] 0
+2025-10-24 17:11 cd eltex_practice/module2/test1/	 [EXITCODE:] 0
+2025-10-24 17:11 ls	 [EXITCODE:] 0
+2025-10-24 17:11 clear	 [EXITCODE:] 0
+2025-10-24 17:11 cd ~	 [EXITCODE:] 0
+2025-10-24 17:11 lf	 [EXITCODE:] 127
+2025-10-24 17:11 ls	 [EXITCODE:] 0
+2025-10-24 17:12 ls	 [EXITCODE:] 130
+2025-10-24 17:13 ls	 [EXITCODE:] 130
+2025-10-24 17:13 clear	 [EXITCODE:] 0
+2025-10-24 17:13 ls	 [EXITCODE:] 0
+2025-10-24 17:13 cp practice2_eltex-pg2-v24_part2.log eltex_practice/module2/test2/	 [EXITCODE:] 0
+2025-10-24 17:13 cp practice2_eltex-pg23v24_part2.log eltex_practice/module2/test3/	 [EXITCODE:] 1
+2025-10-24 17:14 cp practice2_eltex-pg23v24_part2.log eltex_practice/module2/test3/	 [EXITCODE:] 130
+clear
+ls
+cd eltex_practice
+ls
+mkdir -p module2/test1
+mkdir module2/test2
+mkdir module2/test3
+cd module2/
+ls
+cd ~
+cp practice2_eltex-pg22v24_part1.log ~/eltex_practice/module2/test2/
+ls
+cd eltex_practice/module2/test1/
+ls
+clear
+cd ~
+lf
+ls
+clear
+ls
+cp practice2_eltex-pg2-v24_part2.log eltex_practice/module2/test2/
+cp practice2_eltex-pg23v24_part2.log eltex_practice/module2/test3/
+exit
+2025-10-24 17:14 exit	 [EXITCODE:] 0
+2025-10-24 17:14 clear	 [EXITCODE:] 0
+2025-10-24 17:14 ls	 [EXITCODE:] 0
+2025-10-24 17:14 ls	 [EXITCODE:] 130

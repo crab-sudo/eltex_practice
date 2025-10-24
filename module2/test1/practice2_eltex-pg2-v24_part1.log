@@ -1,0 +1,343 @@
+
+2025-10-21 14:30 echo > practice2_eltex-pg2-v24_part1.log 	 [EXITCODE:] 0
+2025-10-21 14:30 clear	 [EXITCODE:] 0
+2025-10-21 14:30 useradd -ms /bin/bash user1	 [EXITCODE:] 0
+2025-10-21 14:30 passwd user1	 [EXITCODE:] 0
+2025-10-21 14:31 adduser user2	 [EXITCODE:] 0
+2025-10-21 14:31 adduser user3	 [EXITCODE:] 0
+2025-10-21 14:31 clar	 [EXITCODE:] 127
+2025-10-21 14:31 cat practice2_eltex-pg2-v24_part1.log 	 [EXITCODE:] 0
+2025-10-21 14:31 clear	 [EXITCODE:] 0
+2025-10-21 14:32 usermod -s /usr/sbin/nologin user3	 [EXITCODE:] 0
+2025-10-21 14:34 awk -F: '{printf "%-15s : %s
+", $1, $7}' /etc/passwd	 [EXITCODE:] 0
+2025-10-21 14:35 clear	 [EXITCODE:] 0
+2025-10-21 14:35 su user3	 [EXITCODE:] 1
+2025-10-21 14:35 su -s /bin/bash user3	 [EXITCODE:] 127
+2025-10-21 14:38 sudo groupadd tmpgroup	 [EXITCODE:] 0
+2025-10-21 14:38 tail /etc/group	 [EXITCODE:] 0
+2025-10-21 14:38 clear	 [EXITCODE:] 0
+2025-10-21 14:41 sudo usermod -aG tmpgroup user1	 [EXITCODE:] 0
+2025-10-21 14:41 sudo usermod -aG tmpgroup user2	 [EXITCODE:] 0
+2025-10-21 14:42 sudo usermod -aG tmpgroup user3	 [EXITCODE:] 0
+2025-10-21 14:45 awk -F: '$3 >= 1000 {printf "%-15s : %sln", $1, $4}' /etc/group	 [EXITCODE:] 0
+2025-10-21 14:45 awk -F: '$3 >= 1000 {printf "%-15s : %s
+", $1, $4}' /etc/group	 [EXITCODE:] 0
+2025-10-21 14:45 clear	 [EXITCODE:] 0
+2025-10-21 14:46 cd /opt/	 [EXITCODE:] 0
+2025-10-21 14:46 ls	 [EXITCODE:] 0
+2025-10-21 14:46 cd ..	 [EXITCODE:] 0
+2025-10-21 14:46 rm -r opt	 [EXITCODE:] 0
+2025-10-21 14:46 ls	 [EXITCODE:] 0
+2025-10-21 14:47 mkdir -p opt/share	 [EXITCODE:] 0
+2025-10-21 14:47 cd opt/	 [EXITCODE:] 0
+2025-10-21 14:47 ls	 [EXITCODE:] 0
+2025-10-21 14:50 sudo chown tmpgroup share	 [EXITCODE:] 1
+2025-10-21 14:51 sudo chgrp tmpgroup share	 [EXITCODE:] 0
+2025-10-21 14:51 ls -l share/	 [EXITCODE:] 0
+2025-10-21 14:51 ls -l 	 [EXITCODE:] 0
+2025-10-21 14:52 sudo chmod g+rwxs share/	 [EXITCODE:] 0
+2025-10-21 14:52 ls -l	 [EXITCODE:] 0
+2025-10-21 14:54 sudo -u user1 bash -c "vi ~/.bashrc"	 [EXITCODE:] 0
+2025-10-21 14:55 echo "Добавил umask 002"	 [EXITCODE:] 0
+2025-10-21 14:56 cd share/	 [EXITCODE:] 0
+2025-10-21 14:56 sudo -u user1 bash -c "touch file1.txt"	 [EXITCODE:] 0
+2025-10-21 14:56 sudo -u user2 bash -c "touch file2.txt"	 [EXITCODE:] 0
+2025-10-21 14:56 sudo -u user3 bash -c "touch file3.txt"	 [EXITCODE:] 0
+2025-10-21 14:56 ls	 [EXITCODE:] 0
+2025-10-21 14:57 ls -l	 [EXITCODE:] 0
+2025-10-21 15:00 sudo -u user1 bash -c "rm file2.txt file3.txt"	 [EXITCODE:] 0
+2025-10-21 15:00 ls	 [EXITCODE:] 0
+2025-10-21 15:01 sudo -u user2 bash -c "touch file2.txt"	 [EXITCODE:] 0
+2025-10-21 15:01 sudo -u user3 bash -c "touch file3.txt"	 [EXITCODE:] 0
+2025-10-21 15:01 la	 [EXITCODE:] 0
+2025-10-21 15:01 clear	 [EXITCODE:] 0
+2025-10-21 15:03 cd ..	 [EXITCODE:] 0
+2025-10-21 15:05 chmod +t share/	 [EXITCODE:] 0
+2025-10-21 15:05 ls -l	 [EXITCODE:] 0
+2025-10-21 15:05 cd share/	 [EXITCODE:] 0
+2025-10-21 15:05 clear	 [EXITCODE:] 0
+2025-10-21 15:07 sudo -u user1 bash -c "rm file2.txt file3.txt"	 [EXITCODE:] 1
+2025-10-21 15:08 ls	 [EXITCODE:] 0
+2025-10-21 15:12 visudo	 [EXITCODE:] 0
+2025-10-21 15:12 echo "user1 ALL=(ALL) NOPASSWD: /bin/dmesg"	 [EXITCODE:] 0
+2025-10-21 15:17 sudo chage -M 10 user{1..3}	 [EXITCODE:] 2
+2025-10-21 15:17 sudo chage -M 10 user1	 [EXITCODE:] 0
+2025-10-21 15:17 sudo chage -M 10 user2	 [EXITCODE:] 0
+2025-10-21 15:17 sudo chage -M 10 user3	 [EXITCODE:] 0
+2025-10-21 15:20 vi /etc/motd	 [EXITCODE:] 0
+2025-10-21 15:26 mkdir ~/etc_backup	 [EXITCODE:] 0
+2025-10-21 15:27 rsync /etc/ /root/etc_backup/	 [EXITCODE:] 0
+2025-10-21 15:29 rsync -av /etc/ /root/etc_backup/	 [EXITCODE:] 0
+2025-10-21 15:29 clear	 [EXITCODE:] 0
+2025-10-21 15:33 tar -cjf ~/etc_backup.tar.bz2 ~/etc_backup	 [EXITCODE:] 0
+2025-10-21 15:33 ls	 [EXITCODE:] 0
+2025-10-21 15:33 cd ~	 [EXITCODE:] 0
+2025-10-21 15:33 ls	 [EXITCODE:] 0
+2025-10-21 15:34 tar -czf ~/etc_backup.tar.gz ~/etc_backup	 [EXITCODE:] 0
+2025-10-21 15:34 ls	 [EXITCODE:] 0
+2025-10-21 15:35 7z a etc_backup.7z ~/etc_backup	 [EXITCODE:] 1
+2025-10-21 15:35 ls	 [EXITCODE:] 0
+2025-10-21 15:36 ls -lh	 [EXITCODE:] 0
+2025-10-21 15:37 vi /etc/motd 	 [EXITCODE:] 0
+2025-10-21 15:45 rsync -av /etc /root/etc_backup	 [EXITCODE:] 0
+clear
+ls
+rsync -avn /etc/ /root/etc_backup/
+rsync -av /etc/ /root/etc_backup/
+clear
+ls
+z
+info z
+ls -ld z
+ls -l z
+clear
+ls
+ls -v
+ls -1
+ls -1v
+ls -l
+ls -F
+ls -R
+clear
+ls -X
+ls -c
+ls -C
+ls --autor
+ls --author
+ls -b
+ls --full-time
+ls --full-time -h
+ls -l
+tar -xzf z
+clear
+ls
+rm etc_backup etc_backup.7z j z
+ls
+rmdir etc_backup
+rmdir -r etc_backup
+rm -r etc_backup
+ls
+cd snap/
+ls
+cd code/
+ls
+cd ../../
+ls
+rm -r snap/
+ls
+echo > practice2_eltex-pg2-v24_part1.log 
+cat practice2_eltex-pg2-v24_part1.log 
+clear
+userdel user1 user2 user3
+awk -F: '{printf "%-15s : %-s\n", $1}' /etc/passwd
+awk -F: '{printf "%-15s : %-s\n", $1, $4}' /etc/passwd
+userdel user1
+userdel user2
+userdel user3
+tail /etc/group
+groupdel tmpgroup 
+groupdel newgroup 
+clear
+echo > practice2_eltex-pg2-v24_part1.log 
+clear
+useradd -ms /bin/bash user1
+cd /home/
+ls
+userdel user1
+rm -r user1 user2 user3
+ls
+tail /etc/passwd
+clear
+cd ~
+echo > practice2_eltex-pg2-v24_part1.log 
+clear
+useradd -ms /bin/bash user1
+passwd user1
+adduser user2
+adduser user3
+clar
+cat practice2_eltex-pg2-v24_part1.log 
+clear
+usermod -s /usr/sbin/nologin user3
+awk -F: '{printf "%-15s : %s\n", $1, $7}' /etc/passwd
+clear
+su user3
+su -s /bin/bash user3
+sudo groupadd tmpgroup
+tail /etc/group
+clear
+sudo usermod -aG tmpgroup user1
+sudo usermod -aG tmpgroup user2
+sudo usermod -aG tmpgroup user3
+awk -F: '$3 >= 1000 {printf "%-15s : %sln", $1, $4}' /etc/group
+awk -F: '$3 >= 1000 {printf "%-15s : %s\n", $1, $4}' /etc/group
+clear
+cd /opt/
+ls
+cd ..
+rm -r opt
+ls
+mkdir -p opt/share
+cd opt/
+ls
+sudo chown tmpgroup share
+sudo chgrp tmpgroup share
+ls -l share/
+ls -l 
+sudo chmod g+rwxs share/
+ls -l
+sudo -u user1 bash -c "vi ~/.bashrc"
+echo "Добавил umask 002"
+cd share/
+sudo -u user1 bash -c "touch file1.txt"
+sudo -u user2 bash -c "touch file2.txt"
+sudo -u user3 bash -c "touch file3.txt"
+ls
+ls -l
+sudo -u user1 bash -c "rm file2.txt file3.txt"
+ls
+sudo -u user2 bash -c "touch file2.txt"
+sudo -u user3 bash -c "touch file3.txt"
+la
+clear
+cd ..
+chmod +t share/
+ls -l
+cd share/
+clear
+sudo -u user1 bash -c "rm file2.txt file3.txt"
+ls
+visudo
+echo "user1 ALL=(ALL) NOPASSWD: /bin/dmesg"
+sudo chage -M 10 user{1..3}
+sudo chage -M 10 user1
+sudo chage -M 10 user2
+sudo chage -M 10 user3
+vi /etc/motd
+mkdir ~/etc_backup
+rsync /etc/ /root/etc_backup/
+rsync -av /etc/ /root/etc_backup/
+clear
+tar -cjf ~/etc_backup.tar.bz2 ~/etc_backup
+ls
+cd ~
+ls
+tar -czf ~/etc_backup.tar.gz ~/etc_backup
+ls
+7z a etc_backup.7z ~/etc_backup
+ls
+ls -lh
+vi /etc/motd 
+rsync -av /etc /root/etc_backup
+exit
+2025-10-21 20:12 exit	 [EXITCODE:] 0
+2025-10-21 20:12 clear	 [EXITCODE:] 0
+2025-10-21 20:12 cat  practice2_eltex-pg2-v24_part1.log 	 [EXITCODE:] 0
+2025-10-21 20:13 clear	 [EXITCODE:] 0
+2025-10-21 20:13 cat practice2_eltex-pg2-v24_part1.log 	 [EXITCODE:] 0
+2025-10-21 20:13 clear	 [EXITCODE:] 0
+2025-10-21 20:14 ls	 [EXITCODE:] 0
+2025-10-21 20:27 2025-10-21 20:14 ls	 [EXITCODE:] 0	 [EXITCODE:] 0
+2025-10-21 21:15 2025-10-21 20:27 2025-10-21 20:14 ls	 [EXITCODE:] 0	 [EXITCODE:] 0	 [EXITCODE:] 0
+2025-10-21 21:17 clear	 [EXITCODE:] 0
+2025-10-21 21:21 tar -rf etc_backup.tar.gzip /etc/motd	 [EXITCODE:] 0
+2025-10-21 21:31 gunzip -c etc_backup.tar.gz | tar -rf - /etc/motd | gzip > etc_backup.tar.gz	 [EXITCODE:] 0
+2025-10-21 21:36 ls	 [EXITCODE:] 0
+2025-10-21 21:37 rm etc_backup.tar.gzip 	 [EXITCODE:] 0
+2025-10-21 21:37 ls	 [EXITCODE:] 0
+2025-10-21 21:38 tar -xzvf etc_backup.tar.gz 	 [EXITCODE:] 0
+2025-10-21 21:38 ls	 [EXITCODE:] 0
+clear
+tar -rf etc_backup.tar.gzip /etc/motd
+gunzip -c etc_backup.tar.gz | tar -rf - /etc/motd | gzip > etc_backup.tar.gz
+ls
+rm etc_backup.tar.gzip 
+ls
+tar -xzvf etc_backup.tar.gz 
+ls
+exit
+clear
+cat  practice2_eltex-pg2-v24_part1.log 
+clear
+cat practice2_eltex-pg2-v24_part1.log 
+clear
+ls
+2025-10-21 23:03 ls	 [EXITCODE:] 0
+2025-10-21 23:04 clar	 [EXITCODE:] 127
+2025-10-21 23:04 clear	 [EXITCODE:] 0
+2025-10-21 23:04 cat practice2_eltex-pg2-v24_part1.log 	 [EXITCODE:] 0
+2025-10-21 23:04 clear	 [EXITCODE:] 0
+2025-10-21 23:05 ls	 [EXITCODE:] 0
+2025-10-21 23:08 rsync -av /etc /root/etc_backup	 [EXITCODE:] 0
+2025-10-21 23:10 tar -xvf etc_backup.tar.gz -C tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:10 ls	 [EXITCODE:] 0
+2025-10-21 23:10 tar -xvf etc_backup.tar.gz -C ~/tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:11 ls	 [EXITCODE:] 0
+2025-10-21 23:11 mkdir tmp_backup	 [EXITCODE:] 0
+2025-10-21 23:11 tar -xvf etc_backup.tar.gz -C ~/tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:11 ls	 [EXITCODE:] 0
+2025-10-21 23:11 cd tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:11 ls	 [EXITCODE:] 0
+2025-10-21 23:12 tar -xvf etc_backup.tar.gz -C ~/tmp_backup	 [EXITCODE:] 2
+2025-10-21 23:12 ls	 [EXITCODE:] 0
+2025-10-21 23:12 cd //	 [EXITCODE:] 0
+2025-10-21 23:12 cd..	 [EXITCODE:] 127
+2025-10-21 23:12 cd ..	 [EXITCODE:] 0
+2025-10-21 23:12 tar -xvf etc_backup.tar.gz -C ~/tmp_backup	 [EXITCODE:] 2
+2025-10-21 23:12 cd ~	 [EXITCODE:] 0
+2025-10-21 23:12 tar -xvf etc_backup.tar.gz -C ~/tmp_backup	 [EXITCODE:] 0
+2025-10-21 23:12 ls	 [EXITCODE:] 0
+2025-10-21 23:12 cd tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:12 ls	 [EXITCODE:] 0
+2025-10-21 23:13 rm tmp_backup	 [EXITCODE:] 1
+2025-10-21 23:13 cd ..	 [EXITCODE:] 0
+2025-10-21 23:13 rm tmp_backup	 [EXITCODE:] 1
+2025-10-21 23:13 rm tmp_backup/	 [EXITCODE:] 1
+2025-10-21 23:13 rm -r tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:13 ls	 [EXITCODE:] 0
+2025-10-21 23:13 clear	 [EXITCODE:] 0
+2025-10-21 23:14 tar -xzvf etc_backup.tar.gz -C ~/tmp_backup	 [EXITCODE:] 0
+2025-10-21 23:14 ls	 [EXITCODE:] 0
+2025-10-21 23:14 tar -xzvf etc_backup.tar.gz -C ~/tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:14 ls	 [EXITCODE:] 0
+2025-10-21 23:15 mkdir tmp_backup	 [EXITCODE:] 0
+2025-10-21 23:15 tar -xzvf etc_backup.tar.gz -C ~/tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:15 cd tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:15 ls	 [EXITCODE:] 0
+2025-10-21 23:17 tar -xzvf etc_backup.tar.gz	 [EXITCODE:] 2
+2025-10-21 23:17 cd ..	 [EXITCODE:] 0
+2025-10-21 23:17 tar -xzvf etc_backup.tar.gz	 [EXITCODE:] 0
+2025-10-21 23:17 cd	 [EXITCODE:] 0
+2025-10-21 23:17 ls	 [EXITCODE:] 0
+2025-10-21 23:19 gunzip etc_backup.tar.gz 	 [EXITCODE:] 0
+2025-10-21 23:19 rmdir tmp_backup/	 [EXITCODE:] 0
+2025-10-21 23:19 ls	 [EXITCODE:] 0
+2025-10-21 23:21 tar -rvf etc_backup.tar etc_backup/motd 	 [EXITCODE:] 0
+2025-10-21 23:22 gunzip etc_backup.tar	 [EXITCODE:] 2
+2025-10-21 23:23 tar -zf etc_backup.tar	 [EXITCODE:] 2
+2025-10-21 23:23 ls	 [EXITCODE:] 0
+2025-10-21 23:24 gzip etc_backup.tar	 [EXITCODE:] 0
+2025-10-21 23:24 ls	 [EXITCODE:] 0
+2025-10-21 23:24 clear	 [EXITCODE:] 0
+2025-10-21 23:28 tar -djvf etc_backup.tar.bz2 -C /root/etc_backup/	 [EXITCODE:] 1
+2025-10-21 23:29 clear	 [EXITCODE:] 0
+2025-10-21 23:29 cat practice2_eltex-pg2-v24_part1.log 	 [EXITCODE:] 0
+2025-10-21 23:30 clear	 [EXITCODE:] 0
+2025-10-21 23:31 mkdir etc_backup_gzip	 [EXITCODE:] 0
+2025-10-21 23:31 mkdir etc_backup_7zip	 [EXITCODE:] 0
+2025-10-21 23:31 ls	 [EXITCODE:] 0
+2025-10-21 23:32 tar -xzvf etc_backup.tar.gz -C ~/etc_backup_gzip/	 [EXITCODE:] 0
+2025-10-21 23:33 7z x etc_backup.7z -o/root/etc_backup_7zip/	 [EXITCODE:] 0
+2025-10-21 23:38 ls	 [EXITCODE:] 0
+2025-10-21 23:39 cd etc_backup_gzip/	 [EXITCODE:] 0
+2025-10-21 23:39 ls	 [EXITCODE:] 0
+2025-10-21 23:39 cd etc_backup/	 [EXITCODE:] 0
+2025-10-21 23:39 ls	 [EXITCODE:] 0
+2025-10-21 23:39 cd ../..	 [EXITCODE:] 0
+2025-10-21 23:40 diff  ~/etc_backup_gzip/etc_backup/motd ~/etc_backup_7zip/etc_backup/motd 	 [EXITCODE:] 0
+2025-10-21 23:41 vi practice2_eltex-pg2-v24_part1.log 	 [EXITCODE:] 0
+2025-10-21 23:43 touch practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
+2025-10-21 23:43 vi ~/.bashrc 	 [EXITCODE:] 0
+2025-10-21 23:43 clear	 [EXITCODE:] 0
+2025-10-21 23:43 cat practice2_eltex-pg2-v24_part2.log 	 [EXITCODE:] 0
