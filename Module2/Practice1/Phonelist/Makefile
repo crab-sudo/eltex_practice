@@ -1,7 +1,7 @@
-COMPIL=gсс
-FLAGS=-c -Wall
-TARGET=target
-SOURSES=main.cpp
+COMPIL=gcc
+FLAGS= -g -c -Wall
+TARGET=phonelist
+SOURSES=main.c backend.c
 OBJECTS=$(SOURSES:.cpp=.o)
 
 all: $(SOURSES) $(TARGET)
