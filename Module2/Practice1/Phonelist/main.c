@@ -9,9 +9,42 @@ int main(){
 
     Init(persons, KPERSONS);
 
-    for (int i=0; i < KPERSONS; ++i)    printf ("%u\n", persons[i].id);
+    // %a - Вызов STATUS Add(Person* persons[], 
+    //          char* fname, 
+    //          char* sname, 
+    //          char* pname, 
+    //          char* job, 
+    //          char* vacancy,
+    //          char* nomb_tmp, 
+    //          char* email, 
+    //          char* mess);
+
+    // %x - Вызов STATUS Edit(Person* persons[], 
+    //          int id, 
+    //          char* fname, 
+    //          char* sname, 
+    //          char* pname, 
+    //          char* job, 
+    //          char* vacancy, 
+    //          char* nomb_tmp, 
+    //          char* email, 
+    //          char* mess);
+
+    // %d - Вызов STATUS Delete(Person* persons[], int id);
+
+    // %i - ID
+    // %f - Имя
+    // %s - Фамилия
+    // %p - Отчество
+    // %j - Место работы
+    // %v - Должность
+    // %n - Номер телефона
+    // %e - email
+    // %m - Ссылка на соц.сеть
+
+    CommandParser("",);
 
     return 0;
 }
 
-// tomato
+// tomato tomato

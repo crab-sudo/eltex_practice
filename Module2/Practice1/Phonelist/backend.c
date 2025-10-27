@@ -71,8 +71,15 @@ void CommandParser(STATUS** status_list, Person* persons[], char* format, ...){
 
 
 
-STATUS Add(Person* persons[], char* fname, char* sname, char* pname, char* job, char* vacancy,
-            char* nomb_tmp, char* email, char* mess){
+STATUS Add(Person* persons[], 
+             char* fname, 
+             char* sname, 
+             char* pname, 
+             char* job, 
+             char* vacancy,
+             char* nomb_tmp, 
+             char* email, 
+             char* mess){
     
     // size_t count = sizeof(persons) / sizeof(persons[0]);
     // int id_list[count];   
@@ -89,8 +96,16 @@ STATUS Add(Person* persons[], char* fname, char* sname, char* pname, char* job, 
 
 
 
-STATUS Edit(Person* persons[], int id, char* fname, char* sname, char* pname, char* job, char* vacancy,
-            char* nomb_tmp, char* email, char* mess){
+STATUS Edit(Person* persons[], 
+                int id, 
+              char* fname, 
+              char* sname, 
+              char* pname, 
+              char* job, 
+              char* vacancy,
+              char* nomb_tmp, 
+              char* email, 
+              char* mess){
 
     int i = 0;
     while(persons[i]->id != id) ++i;

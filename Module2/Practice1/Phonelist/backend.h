@@ -23,15 +23,33 @@ typedef struct {
 
 void Init(Person* persons, size_t count);
 
-STATUS Add(Person* persons[], char* fname, char* sname, char* pname, char* job, char* vacancy,
-            char* nomb_tmp, char* email, char* mess);
+STATUS Add(Person* persons[], 
+             char* fname, 
+             char* sname, 
+             char* pname, 
+             char* job, 
+             char* vacancy,
+             char* nomb_tmp, 
+             char* email, 
+             char* mess);
 
 
-STATUS Edit(Person* persons[], int id, char* fname, char* sname, char* pname, char* job, char* vacancy,
-            char* nomb_tmp, char* email, char* mess);
+STATUS Edit(Person* persons[], 
+              int id, 
+              char* fname, 
+              char* sname, 
+              char* pname, 
+              char* job, 
+              char* vacancy, 
+              char* nomb_tmp, 
+              char* email, 
+              char* mess);
 
 
 STATUS Delete(Person* persons[], int id);
 
 
-void CommandParser(STATUS** status_list, Person* persons[], char* format, ...);
+void CommandParser(STATUS** status_list, 
+                    Person* persons[], 
+                      char* format, 
+                            ...);
