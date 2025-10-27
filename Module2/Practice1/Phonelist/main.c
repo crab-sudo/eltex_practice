@@ -1,13 +1,11 @@
 #include "backend.h"
-#define KPERSONS 6
 
-Person persons[KPERSONS];
 
 int main(){
-
+    unsigned int MAXPERSONS = 6;
+    Person persons[MAXPERSONS];
+    Init(persons, MAXPERSONS);
     STATUS status_list[10];
-
-    Init(persons, KPERSONS);
 
     // %a - Вызов STATUS Add(Person* persons[], 
     //          char* fname, 
@@ -42,9 +40,14 @@ int main(){
     // %e - email
     // %m - Ссылка на соц.сеть
 
-    CommandParser("",);
+    CommandParser(status_list, persons, MAXPERSONS, "%f, %s, %p, %a",
+                "Evgeniy",
+                "Sharkov",
+                "Evgenievich");
+
+    printf("%u %s %s\n", persons[0].id, persons[0].fname, persons[0].sname);
 
     return 0;
 }
 
-// tomato tomato
+// tomato tomato tomato

@@ -9,11 +9,15 @@ void Init(Person* persons, size_t count){
 
 
 
-void CommandParser(STATUS** status_list, Person* persons[], char* format, ...){
+void CommandParser(STATUS* status_list,
+                   Person* persons, 
+                   unsigned int MAXPERSONS, 
+                   char* format, 
+                   ...){
     
-    STATUS status;
+    STATUS status = CODE_0;
 
-    unsigned int    id;
+    unsigned int    id          = 0;
     char            fname[20]   = "-";
     char            sname[20]   = "-";
     char            pname[20]   = "-";
@@ -31,9 +35,18 @@ void CommandParser(STATUS** status_list, Person* persons[], char* format, ...){
 
             switch(*++c){
                 case 'a':
-                    printf("%s %s %s %s %s %s %s %s\n", 
-                        fname, sname, pname, job, vacancy, nomb, email, mess);
-                    //status = Add(&persons, fname, sname, pname, job, vacancy, nomb, email, mess);
+                    status = Add(persons, 
+                                 MAXPERSONS, 
+                                 fname, sname, pname, 
+                                 job, 
+                                 vacancy, 
+                                 nomb, 
+                                 email, 
+                                 mess);
+
+                    if (status == ERR_NO_FIRST_NAME) printf("%s\n", "ERR_NO_FIRST_NAME");
+                    if (status == ERR_NO_SECOND_NAME) printf("%s\n", "ERR_NO_SECOND_NAME");
+                    if (status == ERR_FULL_ARRAY) printf("%s\n", "ERR_FULL_ARRAY");
                     break;
                 
                 case 'x':
@@ -71,7 +84,11 @@ void CommandParser(STATUS** status_list, Person* persons[], char* format, ...){
 
 
 
-STATUS Add(Person* persons[], 
+
+
+
+STATUS Add(Person* persons,
+             unsigned int MAXPERSONS, 
              char* fname, 
              char* sname, 
              char* pname, 
@@ -81,22 +98,62 @@ STATUS Add(Person* persons[],
              char* email, 
              char* mess){
     
-    // size_t count = sizeof(persons) / sizeof(persons[0]);
-    // int id_list[count];   
-    // int i, i_this = 0;
-    // while (persons[i]->id != 0){
-    //     id_list[i] = persons[i]->id;
-    //     ++i;
-    //     if (i==count + 1)   return ERR_FULL_ARRAY;
-    // }
 
-    // strcpy(persons[i]->fname, fname);
+    if (!strcmp(fname, "-")) return ERR_NO_FIRST_NAME;
+    if (!strcmp(sname, "-")) return ERR_NO_SECOND_NAME;
+
+    unsigned int id_list[MAXPERSONS];   
+    int i = 0;
+
+    while (persons[i].id != 0){
+        id_list[i] = persons[i].id;
+        ++i;
+        if (i == MAXPERSONS + 1)   return ERR_FULL_ARRAY;
+    }
+
+    persons[i].id = GeneratorID(id_list, MAXPERSONS);
+    strcpy(persons[i].fname, fname);
+    strcpy(persons[i].sname, sname);
+    strcpy(persons[i].pname, pname);
+    strcpy(persons[i].job, job);
+    strcpy(persons[i].vacancy, vacancy);
+    strcpy(persons[i].nomb, nomb_tmp);
+    strcpy(persons[i].email, email);
+    strcpy(persons[i].mess, mess);
+
     return CODE_0;
 }
 
 
 
-STATUS Edit(Person* persons[], 
+
+
+unsigned int GeneratorID(unsigned int* id_list, size_t size){
+    unsigned int id;
+    bool exists;
+    
+    srand((unsigned int)time(NULL));
+
+    do {
+        exists = false;
+        id = (rand() % 9000) + 1000;
+
+        for (size_t i = 0; i < size; i++) {
+            if (id_list[i] == id) {
+                exists = true;
+                break;
+            }
+        }
+    } while (exists);
+
+    return id;
+}
+
+
+
+
+
+STATUS Edit(Person* persons, 
                 int id, 
               char* fname, 
               char* sname, 
@@ -108,16 +165,16 @@ STATUS Edit(Person* persons[],
               char* mess){
 
     int i = 0;
-    while(persons[i]->id != id) ++i;
+    while(persons[i].id != id) ++i;
 
-    if (strcmp(fname, "-"))     fname    = persons[i]->fname;
-    if (strcmp(sname, "-"))     sname    = persons[i]->sname;
-    if (strcmp(pname, "-"))     pname    = persons[i]->pname;
-    if (strcmp(job, "-"))       job      = persons[i]->job;
-    if (strcmp(vacancy, "-"))   vacancy  = persons[i]->vacancy;
-    if (strcmp(nomb_tmp, "-"))  nomb_tmp = persons[i]->nomb;
-    if (strcmp(email, "-"))     email    = persons[i]->email;
-    if (strcmp(mess, "-"))      mess     = persons[i]->mess;   
+    if (strcmp(fname, "-"))     fname    = persons[i].fname;
+    if (strcmp(sname, "-"))     sname    = persons[i].sname;
+    if (strcmp(pname, "-"))     pname    = persons[i].pname;
+    if (strcmp(job, "-"))       job      = persons[i].job;
+    if (strcmp(vacancy, "-"))   vacancy  = persons[i].vacancy;
+    if (strcmp(nomb_tmp, "-"))  nomb_tmp = persons[i].nomb;
+    if (strcmp(email, "-"))     email    = persons[i].email;
+    if (strcmp(mess, "-"))      mess     = persons[i].mess;   
 
     return CODE_0;
 }

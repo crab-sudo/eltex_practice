@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 typedef enum {
     CODE_0,
     ERR_FULL_ARRAY,
+    ERR_NO_FIRST_NAME,
+    ERR_NO_SECOND_NAME
 } STATUS;
-
-#define ERR_FULL_ARRAY "ERR_FULL_ARRAY"
 
 typedef struct {
     unsigned int    id;
@@ -23,7 +27,8 @@ typedef struct {
 
 void Init(Person* persons, size_t count);
 
-STATUS Add(Person* persons[], 
+STATUS Add(Person* persons,
+             unsigned int MAXPERSONS,
              char* fname, 
              char* sname, 
              char* pname, 
@@ -34,7 +39,7 @@ STATUS Add(Person* persons[],
              char* mess);
 
 
-STATUS Edit(Person* persons[], 
+STATUS Edit(Person* persons, 
               int id, 
               char* fname, 
               char* sname, 
@@ -46,10 +51,14 @@ STATUS Edit(Person* persons[],
               char* mess);
 
 
-STATUS Delete(Person* persons[], int id);
+STATUS Delete(Person* persons, int id);
 
 
-void CommandParser(STATUS** status_list, 
-                    Person* persons[], 
+void CommandParser(STATUS* status_list, 
+                    Person* persons,
+                    unsigned int MAXPERSONS,
                       char* format, 
                             ...);
+
+
+unsigned int GeneratorID(unsigned int* id_list, size_t size);
