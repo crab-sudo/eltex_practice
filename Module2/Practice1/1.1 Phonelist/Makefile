@@ -1,8 +1,8 @@
 COMPIL=gcc
 FLAGS= -g -c -Wall
 TARGET=phonelist
-SOURSES=main.c backend.c
-OBJECTS=$(SOURSES:.cpp=.o)
+SOURSES=main.c backend.c interface.c
+OBJECTS=$(SOURSES:.c=.o)
 
 all: $(SOURSES) $(TARGET)
 
