@@ -1,6 +1,6 @@
 COMPIL=gcc
 FLAGS= -g -c -Wall
-TARGET=priority_queue
+TARGET=priority_queue.out
 SOURSES=main.c backend.c gui.c
 OBJECTS=$(SOURSES:.c=.o)
 
