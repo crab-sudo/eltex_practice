@@ -368,9 +368,140 @@ static void inorder_table(Person* node, char str_persons[][200], unsigned int* i
     inorder_table(node->right, str_persons, idx);
 }
 
+/* --- Layout & drawing for ASCII tree with branches --- */
+
+/* Small struct for layout results */
+typedef struct {
+    Person* node;
+    int x; /* horizontal position index */
+    int y; /* depth (0-based) */
+} LayoutNode;
+
+/* We perform an in-order traversal assigning consecutive x indices.
+   Returns nothing, but fills arr and updates *next_x and returns max depth. */
+static int assign_positions(Person* root, LayoutNode arr[], int *next_x, int depth) {
+    if (!root) return 0;
+    int maxd = depth;
+    /* left */
+    if (root->left) {
+        int d = assign_positions(root->left, arr, next_x, depth + 1);
+        if (d > maxd) maxd = d;
+    }
+    /* this node */
+    int idx = *next_x;
+    arr[idx].node = root;
+    arr[idx].x = (*next_x);
+    arr[idx].y = depth;
+    (*next_x)++;
+    /* right */
+    if (root->right) {
+        int d = assign_positions(root->right, arr, next_x, depth + 1);
+        if (d > maxd) maxd = d;
+    }
+    return maxd;
+}
+
+/* Find LayoutNode index by Person* (linear search on small arrays) */
+static int find_layout_index(LayoutNode arr[], int n, Person* p) {
+    for (int i = 0; i < n; ++i) {
+        if (arr[i].node == p) return i;
+    }
+    return -1;
+}
+
+/* Build lines of ASCII tree into lines[] starting at offset *idx_out.
+   width_factor sets horizontal spacing per x unit (choose 6 to fit 4-digit ids comfortably). */
+static void build_tree_ascii(Person* root, char lines[][200], unsigned int* idx_out) {
+    if (!root) return;
+
+    LayoutNode arr[200];
+    for (int i = 0; i < 200; ++i) { arr[i].node = NULL; arr[i].x = arr[i].y = 0; }
+    int next_x = 0;
+    int max_depth = assign_positions(root, arr, &next_x, 0);
+    int nodes = next_x;
+    if (nodes == 0) return;
+
+    const int width_factor = 6; /* spaces per x-step */
+    const int vert_step = 2;    /* lines per depth (one for node, one for branches) */
+
+    int canvas_rows = (max_depth + 1) * vert_step + 1;
+    int canvas_cols = nodes * width_factor + 4;
+
+    /* allocate canvas as array of char initialized with spaces */
+    char canvas[200][200];
+    if (canvas_rows >= 200) canvas_rows = 199;
+    if (canvas_cols >= 200) canvas_cols = 199;
+    for (int r = 0; r < canvas_rows; ++r) {
+        for (int c = 0; c < canvas_cols; ++c) canvas[r][c] = ' ';
+        canvas[r][canvas_cols - 1] = '\0';
+    }
+
+    /* Draw nodes (ids) */
+    for (int i = 0; i < nodes; ++i) {
+        int xpos = arr[i].x * width_factor;
+        int ypos = arr[i].y * vert_step;
+        char buf[32];
+        snprintf(buf, sizeof(buf), "%u", arr[i].node->id);
+        int blen = (int)strlen(buf);
+        /* center id horizontally on xpos (shift left by blen/2) */
+        int putx = xpos - blen/2;
+        if (putx < 0) putx = 0;
+        if (putx + blen >= canvas_cols) putx = canvas_cols - blen - 1;
+        for (int k = 0; k < blen && (putx + k) < canvas_cols - 1; ++k)
+            canvas[ypos][putx + k] = buf[k];
+    }
+
+    /* Draw branches (/ and \) between parent and children */
+    for (int i = 0; i < nodes; ++i) {
+        Person* p = arr[i].node;
+        int px = arr[i].x * width_factor;
+        int py = arr[i].y * vert_step;
+        if (p->left) {
+            /* find left child's position */
+            int li = find_layout_index(arr, nodes, p->left);
+            if (li >= 0) {
+                int lx = arr[li].x * width_factor;
+                int ly = arr[li].y * vert_step;
+                /* place '/' on the line between parent and child: at py+1 closer to left child */
+                int bx = (px + lx) / 2;
+                int by = py + 1;
+                if (by < canvas_rows && bx < canvas_cols) canvas[by][bx] = '/';
+                /* draw simple diagonal line from parent to child if space allows */
+                int steps = abs(px - lx);
+                int sign = (lx < px) ? -1 : 1;
+                /* optional: draw short connecting line (we keep it minimal to avoid clutter) */
+            }
+        }
+        if (p->right) {
+            int ri = find_layout_index(arr, nodes, p->right);
+            if (ri >= 0) {
+                int rx = arr[ri].x * width_factor;
+                int ry = arr[ri].y * vert_step;
+                int bx = (px + rx) / 2;
+                int by = py + 1;
+                if (by < canvas_rows && bx < canvas_cols) canvas[by][bx] = '\\';
+            }
+        }
+    }
+
+    /* Convert canvas rows into lines[] and append to output lines */
+    for (int r = 0; r < canvas_rows; ++r) {
+        /* trim trailing spaces */
+        int last = canvas_cols - 2;
+        while (last >= 0 && canvas[r][last] == ' ') last--;
+        if (last < 0) {
+            lines[(*idx_out)][0] = '\0';
+        } else {
+            canvas[r][last+1] = '\0';
+            strncpy(lines[(*idx_out)], canvas[r], 200);
+        }
+        (*idx_out)++;
+        if (*idx_out >= 100) break;
+    }
+}
+
 /* Print tree rotated: right on top, node, left below.
-   Each level adds indentation. This produces an ASCII "drawing" of tree.
-   It writes lines into the same str_persons array starting at *idx. */
+   (This function is replaced by more robust build_tree_ascii usage in PersonToString) */
 static void printTreeRotated(Person* node, int space, char lines[][200], unsigned int* idx) {
     if (!node) return;
 
@@ -407,8 +538,8 @@ static void printTreeRotated(Person* node, int space, char lines[][200], unsigne
         else if (node->left)
             snprintf(branch + j, sizeof(branch) - j, "/");
 
-    strncpy(lines[(*idx)++], branch, 200);
-}
+        strncpy(lines[(*idx)++], branch, 200);
+    }
 
     printTreeRotated(node->left, space, lines, idx);
 }
@@ -431,8 +562,8 @@ void PersonToString(Person* head, char str_persons[][200], unsigned int* count) 
         return;
     }
 
-    /* 3) append ASCII tree (rotated) showing only ids */
-    printTreeRotated(head, 0, str_persons, &i);
+    /* 3) append ASCII tree (with branches) showing only ids */
+    build_tree_ascii(head, str_persons, &i);
 
     *count = i;
 }

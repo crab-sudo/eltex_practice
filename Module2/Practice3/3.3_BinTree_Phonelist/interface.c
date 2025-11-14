@@ -21,6 +21,7 @@ static void safe_copy(char *dest, size_t size, const char *src) {
 
 
 
+
 void PromptTerminal(char* prompt, char new_prompt[30], char arguments[9][30]) {
     strcpy(new_prompt, "");
     for (size_t i = 0; i < 9; ++i) strcpy(arguments[i], "");
@@ -58,7 +59,6 @@ void PromptTerminal(char* prompt, char new_prompt[30], char arguments[9][30]) {
 
 
 
-
 void PersonsPrint(char str_persons[][200], unsigned int count) {
     printf("| %-4s | %-15s | %-15s | %-15s | %-20s | %-20s | %-15s | %-15s | %-15s |\n",
            "ID", 
@@ -72,7 +72,6 @@ void PersonsPrint(char str_persons[][200], unsigned int count) {
            "Messenger");
     for (size_t i = 0; i < count; i++)  printf("%s\n", str_persons[i]);
 }
-
 
 
 
