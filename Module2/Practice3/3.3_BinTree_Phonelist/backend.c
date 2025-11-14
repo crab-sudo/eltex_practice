@@ -1,13 +1,27 @@
 #include "backend.h"
 
+
+
+
+
 static int max(int a, int b) {
     return (a > b) ? a : b;
 }
+
+
+
+
+
 
 static int height(Person* N) {
     if (N == NULL) return 0;
     return N->height;
 }
+
+
+
+
+
 
 static Person* rightRotate(Person* y) {
     Person* x = y->left;
@@ -22,6 +36,11 @@ static Person* rightRotate(Person* y) {
     return x;
 }
 
+
+
+
+
+
 static Person* leftRotate(Person* x) {
     Person* y = x->right;
     Person* T2 = y->left;
@@ -35,10 +54,18 @@ static Person* leftRotate(Person* x) {
     return y;
 }
 
+
+
+
+
 static int getBalance(Person* N) {
     if (N == NULL) return 0;
     return height(N->left) - height(N->right);
 }
+
+
+
+
 
 static Person* minValueNode(Person* node) {
     Person* current = node;
@@ -46,9 +73,20 @@ static Person* minValueNode(Person* node) {
     return current;
 }
 
+
+
+
+
+
 void Init(Person** head) {
     *head = NULL;
 }
+
+
+
+
+
+
 
 static void freePostOrder(Person* node) {
     if (!node) return;
@@ -57,11 +95,22 @@ static void freePostOrder(Person* node) {
     free(node);
 }
 
+
+
+
+
+
 void FreeAll(Person** head) {
     if (!head || !*head) return;
     freePostOrder(*head);
     *head = NULL;
 }
+
+
+
+
+
+
 
 void StatusToString(STATUS status, char new_status[15]) {
     if (status == CODE_0)               strcpy(new_status, "CODE_0"             );
@@ -70,6 +119,12 @@ void StatusToString(STATUS status, char new_status[15]) {
     if (status == ERR_NO_SECOND_NAME)   strcpy(new_status, "ERR_NO_SECOND_NAME" );
     if (status == ERR_INCORECT_ID)      strcpy(new_status, "ERR_INCORECT_ID"    );
 }
+
+
+
+
+
+
 
 static bool existsInTree(Person* root, unsigned int id) {
     Person* cur = root;
@@ -80,6 +135,12 @@ static bool existsInTree(Person* root, unsigned int id) {
     }
     return false;
 }
+
+
+
+
+
+
 
 unsigned int GeneratorID(Person* head) {
     unsigned int id;
@@ -93,7 +154,13 @@ unsigned int GeneratorID(Person* head) {
     return id;
 }
 
-/* Internal recursive insert for AVL by id */
+
+
+
+
+
+
+
 static Person* insertNode(Person* node, Person* new_person) {
     if (node == NULL) return new_person;
 
@@ -102,27 +169,27 @@ static Person* insertNode(Person* node, Person* new_person) {
     else if (new_person->id > node->id)
         node->right = insertNode(node->right, new_person);
     else
-        return node; /* duplicate ids shouldn't happen */
+        return node;
 
     node->height = 1 + max(height(node->left), height(node->right));
 
     int balance = getBalance(node);
 
-    /* Left Left */
+
     if (balance > 1 && new_person->id < node->left->id)
         return rightRotate(node);
 
-    /* Right Right */
+
     if (balance < -1 && new_person->id > node->right->id)
         return leftRotate(node);
 
-    /* Left Right */
+
     if (balance > 1 && new_person->id > node->left->id) {
         node->left = leftRotate(node->left);
         return rightRotate(node);
     }
 
-    /* Right Left */
+
     if (balance < -1 && new_person->id < node->right->id) {
         node->right = rightRotate(node->right);
         return leftRotate(node);
@@ -130,6 +197,13 @@ static Person* insertNode(Person* node, Person* new_person) {
 
     return node;
 }
+
+
+
+
+
+
+
 
 STATUS Add(Person** head,   char* fname, 
                             char* sname, 
@@ -169,6 +243,12 @@ STATUS Add(Person** head,   char* fname,
     return CODE_0;
 }
 
+
+
+
+
+
+
 STATUS Edit(Person* head, unsigned int id,  char* fname, 
                                             char* sname, 
                                             char* pname, 
@@ -197,7 +277,11 @@ STATUS Edit(Person* head, unsigned int id,  char* fname,
     return CODE_0;
 }
 
-/* delete node and rebalance */
+
+
+
+
+
 static Person* deleteNode(Person* root, unsigned int id, STATUS* out_status) {
     if (root == NULL) {
         if (out_status) *out_status = ERR_INCORECT_ID;
@@ -209,21 +293,17 @@ static Person* deleteNode(Person* root, unsigned int id, STATUS* out_status) {
     else if (id > root->id)
         root->right = deleteNode(root->right, id, out_status);
     else {
-        /* node with only one child or no child */
         if ((root->left == NULL) || (root->right == NULL)) {
             Person* temp = root->left ? root->left : root->right;
 
             if (temp == NULL) {
-                /* no child */
                 temp = root;
                 root = NULL;
             } else {
-                /* one child */
                 *root = *temp;
             }
             free(temp);
         } else {
-            /* node with two children */
             Person* temp = minValueNode(root->right);
             root->id = temp->id;
             strcpy(root->fname, temp->fname);
@@ -245,21 +325,20 @@ static Person* deleteNode(Person* root, unsigned int id, STATUS* out_status) {
 
     int balance = getBalance(root);
 
-    /* Left Left */
+
     if (balance > 1 && getBalance(root->left) >= 0)
         return rightRotate(root);
 
-    /* Left Right */
+
     if (balance > 1 && getBalance(root->left) < 0) {
         root->left = leftRotate(root->left);
         return rightRotate(root);
     }
 
-    /* Right Right */
+
     if (balance < -1 && getBalance(root->right) <= 0)
         return leftRotate(root);
 
-    /* Right Left */
     if (balance < -1 && getBalance(root->right) > 0) {
         root->right = rightRotate(root->right);
         return leftRotate(root);
@@ -268,12 +347,22 @@ static Person* deleteNode(Person* root, unsigned int id, STATUS* out_status) {
     return root;
 }
 
+
+
+
+
+
 STATUS Delete(Person** head, unsigned int id) {
     if (!*head) return ERR_INCORECT_ID;
     STATUS st = CODE_0;
     *head = deleteNode(*head, id, &st);
     return st;
 }
+
+
+
+
+
 
 STATUS CommandParser(Person** head, char* format, ...) {
     STATUS status = CODE_0;
@@ -351,7 +440,12 @@ STATUS CommandParser(Person** head, char* format, ...) {
     return status;
 }
 
-/* In-order traversal to build table rows (ascending id) */
+
+
+
+
+
+
 static void inorder_table(Person* node, char str_persons[][200], unsigned int* idx) {
     if (!node) return;
     inorder_table(node->left, str_persons, idx);
@@ -368,32 +462,25 @@ static void inorder_table(Person* node, char str_persons[][200], unsigned int* i
     inorder_table(node->right, str_persons, idx);
 }
 
-/* --- Layout & drawing for ASCII tree with branches --- */
 
-/* Small struct for layout results */
-typedef struct {
-    Person* node;
-    int x; /* horizontal position index */
-    int y; /* depth (0-based) */
-} LayoutNode;
 
-/* We perform an in-order traversal assigning consecutive x indices.
-   Returns nothing, but fills arr and updates *next_x and returns max depth. */
+
+
 static int assign_positions(Person* root, LayoutNode arr[], int *next_x, int depth) {
     if (!root) return 0;
     int maxd = depth;
-    /* left */
+
     if (root->left) {
         int d = assign_positions(root->left, arr, next_x, depth + 1);
         if (d > maxd) maxd = d;
     }
-    /* this node */
+
     int idx = *next_x;
     arr[idx].node = root;
     arr[idx].x = (*next_x);
     arr[idx].y = depth;
     (*next_x)++;
-    /* right */
+
     if (root->right) {
         int d = assign_positions(root->right, arr, next_x, depth + 1);
         if (d > maxd) maxd = d;
@@ -401,7 +488,11 @@ static int assign_positions(Person* root, LayoutNode arr[], int *next_x, int dep
     return maxd;
 }
 
-/* Find LayoutNode index by Person* (linear search on small arrays) */
+
+
+
+
+
 static int find_layout_index(LayoutNode arr[], int n, Person* p) {
     for (int i = 0; i < n; ++i) {
         if (arr[i].node == p) return i;
@@ -409,8 +500,13 @@ static int find_layout_index(LayoutNode arr[], int n, Person* p) {
     return -1;
 }
 
-/* Build lines of ASCII tree into lines[] starting at offset *idx_out.
-   width_factor sets horizontal spacing per x unit (choose 6 to fit 4-digit ids comfortably). */
+
+
+
+
+
+
+
 static void build_tree_ascii(Person* root, char lines[][200], unsigned int* idx_out) {
     if (!root) return;
 
@@ -421,13 +517,12 @@ static void build_tree_ascii(Person* root, char lines[][200], unsigned int* idx_
     int nodes = next_x;
     if (nodes == 0) return;
 
-    const int width_factor = 6; /* spaces per x-step */
-    const int vert_step = 2;    /* lines per depth (one for node, one for branches) */
+    const int width_factor = 6; 
+    const int vert_step = 2;    
 
     int canvas_rows = (max_depth + 1) * vert_step + 1;
     int canvas_cols = nodes * width_factor + 4;
 
-    /* allocate canvas as array of char initialized with spaces */
     char canvas[200][200];
     if (canvas_rows >= 200) canvas_rows = 199;
     if (canvas_cols >= 200) canvas_cols = 199;
@@ -436,14 +531,13 @@ static void build_tree_ascii(Person* root, char lines[][200], unsigned int* idx_
         canvas[r][canvas_cols - 1] = '\0';
     }
 
-    /* Draw nodes (ids) */
     for (int i = 0; i < nodes; ++i) {
         int xpos = arr[i].x * width_factor;
         int ypos = arr[i].y * vert_step;
         char buf[32];
         snprintf(buf, sizeof(buf), "%u", arr[i].node->id);
         int blen = (int)strlen(buf);
-        /* center id horizontally on xpos (shift left by blen/2) */
+
         int putx = xpos - blen/2;
         if (putx < 0) putx = 0;
         if (putx + blen >= canvas_cols) putx = canvas_cols - blen - 1;
@@ -451,25 +545,25 @@ static void build_tree_ascii(Person* root, char lines[][200], unsigned int* idx_
             canvas[ypos][putx + k] = buf[k];
     }
 
-    /* Draw branches (/ and \) between parent and children */
+
     for (int i = 0; i < nodes; ++i) {
         Person* p = arr[i].node;
         int px = arr[i].x * width_factor;
         int py = arr[i].y * vert_step;
         if (p->left) {
-            /* find left child's position */
+
             int li = find_layout_index(arr, nodes, p->left);
             if (li >= 0) {
                 int lx = arr[li].x * width_factor;
                 int ly = arr[li].y * vert_step;
-                /* place '/' on the line between parent and child: at py+1 closer to left child */
+
                 int bx = (px + lx) / 2;
                 int by = py + 1;
                 if (by < canvas_rows && bx < canvas_cols) canvas[by][bx] = '/';
-                /* draw simple diagonal line from parent to child if space allows */
+
                 int steps = abs(px - lx);
                 int sign = (lx < px) ? -1 : 1;
-                /* optional: draw short connecting line (we keep it minimal to avoid clutter) */
+   
             }
         }
         if (p->right) {
@@ -484,9 +578,9 @@ static void build_tree_ascii(Person* root, char lines[][200], unsigned int* idx_
         }
     }
 
-    /* Convert canvas rows into lines[] and append to output lines */
+
     for (int r = 0; r < canvas_rows; ++r) {
-        /* trim trailing spaces */
+ 
         int last = canvas_cols - 2;
         while (last >= 0 && canvas[r][last] == ' ') last--;
         if (last < 0) {
@@ -500,12 +594,16 @@ static void build_tree_ascii(Person* root, char lines[][200], unsigned int* idx_
     }
 }
 
-/* Print tree rotated: right on top, node, left below.
-   (This function is replaced by more robust build_tree_ascii usage in PersonToString) */
+
+
+
+
+
+
 static void printTreeRotated(Person* node, int space, char lines[][200], unsigned int* idx) {
     if (!node) return;
 
-    const int COUNT = 6; /* spacing increment */
+    const int COUNT = 6;
     space += COUNT;
 
     printTreeRotated(node->right, space, lines, idx);
@@ -516,7 +614,7 @@ static void printTreeRotated(Person* node, int space, char lines[][200], unsigne
     buf[i] = '\0';
 
     char nodeinfo[160];
-    /* show only id in tree drawing as requested */
+
     sprintf(nodeinfo, "%u", node->id);
     snprintf(buf + i, sizeof(buf) - i, "%s", nodeinfo);
 
@@ -526,11 +624,9 @@ static void printTreeRotated(Person* node, int space, char lines[][200], unsigne
         char branch[200];
         int j;
 
-        /* indentation */
+
         for (j = 0; j < space - COUNT; ++j) branch[j] = ' ';
         branch[j] = '\0';
-
-        /* add / and \ depending on children */
         if (node->right && node->left)
             snprintf(branch + j, sizeof(branch) - j, "/ \\");
         else if (node->right)
@@ -544,25 +640,30 @@ static void printTreeRotated(Person* node, int space, char lines[][200], unsigne
     printTreeRotated(node->left, space, lines, idx);
 }
 
+
+
+
+
+
 void PersonToString(Person* head, char str_persons[][200], unsigned int* count) {
     unsigned int i = 0;
 
-    /* 1) build table rows (in-order traversal -> ascending ids) */
+
     if (head) {
         inorder_table(head, str_persons, &i);
     }
 
-    /* 2) append an empty separator line before tree for readability */
+
     if (head) {
         if (i < 100) strncpy(str_persons[i++], "", 200);
     } else {
-        /* tree empty -> show message */
+
         snprintf(str_persons[i++], 200, "(empty tree)");
         *count = i;
         return;
     }
 
-    /* 3) append ASCII tree (with branches) showing only ids */
+
     build_tree_ascii(head, str_persons, &i);
 
     *count = i;

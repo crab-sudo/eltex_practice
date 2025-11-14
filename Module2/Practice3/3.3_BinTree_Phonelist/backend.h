@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+
+
+
 typedef enum {
     CODE_0,
     ERR_FULL_ARRAY,
@@ -13,6 +16,9 @@ typedef enum {
     ERR_NO_SECOND_NAME,
     ERR_INCORECT_ID
 } STATUS;
+
+
+
 
 typedef struct Person {
     unsigned int            id;
@@ -28,6 +34,17 @@ typedef struct Person {
     struct Person*  right;
     int             height;
 } Person;
+
+
+
+typedef struct {
+    Person* node;
+    int x;
+    int y;
+} LayoutNode;
+
+
+
 
 void Init(Person** head);
 
@@ -52,12 +69,12 @@ STATUS Edit(Person* head,   unsigned int    id,
                             char*   email, 
                             char*   mess);
 
-STATUS Delete(Person** head, unsigned int id);
+STATUS Delete(              Person** head,  unsigned int id);
 
-STATUS CommandParser(Person** head, char* format, ...);
+STATUS CommandParser(       Person** head,  char* format, ...);
 
-unsigned int GeneratorID(Person* head);
+unsigned int GeneratorID(   Person* head);
 
-void StatusToString(STATUS status, char new_status[15]);
+void StatusToString(        STATUS status,  char new_status[15]);
 
-void PersonToString(Person* head, char str_persons[][200], unsigned int* count);
+void PersonToString(        Person* head,   char str_persons[][200], unsigned int* count);
