@@ -1,6 +1,6 @@
 COMPIL=gcc
 FLAGS= -g -c -Wall
-TARGET=phonelist
+TARGET=phonelist.out
 SOURSES=main.c backend.c interface.c
 OBJECTS=$(SOURSES:.c=.o)
 
