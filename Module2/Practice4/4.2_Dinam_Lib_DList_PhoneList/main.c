@@ -6,7 +6,7 @@ int main() {
     Person* head;
     char            str_persons [100][200];
     STATUS          status                  = CODE_0;
-    char            new_status  [15];
+    char            new_status  [20];
     char            prompt      [200]       = "";
     char            new_prompt  [64];
     char            arguments   [9][30];
