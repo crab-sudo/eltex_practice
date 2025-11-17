@@ -2,8 +2,8 @@ COMPIL   = gcc
 FLAGS    = -g -c -Wall
 
 
-TARGET   = phonelist.out
-SOURCES  = main.c backend.c interface.c
+TARGET   = terminal.out
+SOURCES  = main.c backend.c
 OBJECTS  = $(SOURCES:.c=.o)
 
 
@@ -17,10 +17,6 @@ $(TARGET): $(OBJECTS) $(LIB_NAME)
 
 %.o: %.c
 	$(COMPIL) $(FLAGS) $< -o $@
-
-
-run: $(TARGET)
-	./$(TARGET)
 
 
 clean:
