@@ -2,21 +2,22 @@
 #include "interface.h"
 
 #include <termios.h>
-#include <unistd.h>
+
 
 
 int main(){
-    unsigned int MAXPERSONS = 3;
-    Person       persons[MAXPERSONS];
-    char         str_persons[MAXPERSONS][200];
-    STATUS       status = CODE_0;
-    char         new_status[15];
+    const unsigned int  MAXPERSONS                     = 10;
+    Person              persons    [MAXPERSONS];
+    char                str_persons[MAXPERSONS][200];
+    STATUS              status                         = CODE_0;
+    char                new_status [30];
 
-    char         prompt[200] = "";
-    char         new_prompt[64];
-    char         arguments[9][30];
+    char                prompt     [200]               = "";
+    char                new_prompt [64];
+    char                arguments  [9][30];
 
     Init(persons, MAXPERSONS);
+    status = readPersons("phonebook.dat", persons, MAXPERSONS);
 
     while (1) {
         PersonToString(persons, MAXPERSONS, str_persons);
@@ -48,6 +49,9 @@ int main(){
 
         if (strcmp(prompt, "exit") == 0) {
             printf("Exiting program...\n");
+            status = writePersons("phonebook.dat", persons, MAXPERSONS);
+            StatusToString(status, new_status);
+            ErrPrint(new_status);
             break;
         }
 
@@ -66,7 +70,6 @@ int main(){
                                     arguments[8]);
 
         StatusToString(status, new_status);
-
         ErrPrint(new_status);
     }
 

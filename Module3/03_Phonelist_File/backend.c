@@ -9,7 +9,7 @@ void Init(Person* persons, size_t count){
 
 
 
-void StatusToString(STATUS status, char new_status[15]){
+void StatusToString(STATUS status, char new_status[30]){
         if (status == CODE_0)               strcpy(new_status, "CODE_0");
         if (status == ERR_FULL_ARRAY)       strcpy(new_status, "ERR_FULL_ARRAY");
         if (status == ERR_NO_FIRST_NAME)    strcpy(new_status, "ERR_NO_FIRST_NAME");
@@ -49,7 +49,6 @@ STATUS CommandParser(Person*      persons,
                       char*        format, 
                                    ...){
 
-    size_t size = 1;
     STATUS status = CODE_0;
 
     unsigned int    id          = 0;
@@ -238,6 +237,65 @@ STATUS Delete(Person* persons, unsigned int MAXPERSONS, unsigned int id){
     strcpy(persons[i].nomb,    "");
     strcpy(persons[i].email,   "");
     strcpy(persons[i].mess,    "");
+
+    return CODE_0;
+}
+
+
+
+
+
+STATUS writePersons(const char *filename, const Person *array, int count)
+{
+    int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (fd < 0)     return ERR_INCORECT_FD;
+
+    const unsigned char *buf = (const unsigned char*)array;
+    ssize_t to_write = (ssize_t)count * (ssize_t)sizeof(Person);
+    ssize_t written = 0;
+
+    while (written < to_write) {
+        ssize_t w = write(fd, buf + written, (size_t)(to_write - written));
+        if (w < 0) {
+            if (errno == EINTR) continue;
+            close(fd);
+            return ERR_WRITE_FAILED;
+        }
+        written += w;
+    }
+
+    close(fd);
+    return CODE_0;
+}
+
+
+
+
+
+STATUS readPersons(const char *filename, Person *array, int maxCount)
+{
+    int fd = open(filename, O_RDONLY);
+    if (fd < 0)     return ERR_INCORECT_FD;
+
+
+    int count = 0;
+    ssize_t r;
+    while (count < maxCount) {
+        r = read(fd, &array[count], sizeof(Person));
+        if (r == sizeof(Person)) {
+            ++count;
+        } else if (r == 0) {
+            break;
+        } else if (r < 0) {
+            if (errno == EINTR) continue;
+            close(fd);
+            return ERR_READ_FAILED;
+        } else {
+            break;
+        }
+    }
+
+    close(fd);
 
     return CODE_0;
 }

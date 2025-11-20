@@ -70,4 +70,7 @@ void ErrPrint(char status[15]){
     if (!strcmp(status, "ERR_NO_FIRST_NAME"))    printf("\033[41m%s\n\n\033[0m", "Not enter first name");
     if (!strcmp(status, "ERR_NO_SECOND_NAME"))   printf("\033[41m%s\n\n\033[0m", "Not enter second name");
     if (!strcmp(status, "ERR_INCORECT_ID"))      printf("\033[41m%s\n\n\033[0m", "Incorrect ID");
+    if (!strcmp(status, "ERR_INCORECT_FD"))      printf("\033[41m%s\n\n\033[0m", "Incorrect file descriptor");
+    if (!strcmp(status, "ERR_WRITE_FAILED"))     printf("\033[41m%s\n\n\033[0m", "Write operation failed");
+    if (!strcmp(status, "ERR_READ_FAILED"))      printf("\033[41m%s\n\n\033[0m", "Read operation failed");
 }

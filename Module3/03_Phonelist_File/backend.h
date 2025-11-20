@@ -6,6 +6,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
 
 
 
@@ -14,7 +17,10 @@ typedef enum {
     ERR_FULL_ARRAY,
     ERR_NO_FIRST_NAME,
     ERR_NO_SECOND_NAME,
-    ERR_INCORECT_ID
+    ERR_INCORECT_ID,
+    ERR_INCORECT_FD,
+    ERR_WRITE_FAILED,
+    ERR_READ_FAILED
 } STATUS;
 
 
@@ -70,8 +76,12 @@ STATUS CommandParser(Person*      persons,
 unsigned int GeneratorID(unsigned int* id_list, size_t size);
 
 void StatusToString(STATUS      status, 
-                    char        new_status_list[15]);
+                    char        new_status_list[30]);
 
 void PersonToString(Person*      persons, 
                     unsigned int MAXPERSONS, 
                     char         str_persons[][200]);
+
+STATUS writePersons(const char *filename, const Person *array, int count);
+
+STATUS readPersons(const char *filename, Person *array, int maxCount);
