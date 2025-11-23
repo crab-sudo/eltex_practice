@@ -1,0 +1,173 @@
+[33mcommit 404847af0d7e31b97b9a9cd7c033d7c4296c1ff5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sat Nov 22 00:31:53 2025 +0700
+
+    Выполнено здание 04 Симулятор терминала с конвейерами
+
+[33mcommit 5b71f286c52576ed586f280cc64dcbf321fb22bf[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Thu Nov 20 16:29:56 2025 +0700
+
+    Сделано задание 03 Список контактов с записью в файл
+
+[33mcommit f25220b198bffb9a17c04233b944e390bc0e2cd0[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Mon Nov 17 16:20:15 2025 +0700
+
+    Добавлено решение задания 02 Симулятор терминала
+
+[33mcommit b49e2851fef4ea2a5eaa07d032c68aca8612da3a[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Mon Nov 17 16:20:15 2025 +0700
+
+    Сделано задание 1.1 Родительский процесс/Дочерний процесс
+
+[33mcommit 409b5342d822b79d8784c5bb0c2b70d8fba0f08e[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sun Nov 16 17:50:58 2025 +0700
+
+    Выполнено задание 4.2 Реализация динамической библиотеки
+
+[33mcommit 31dd9b7ad1a0eb0422b4258a9ab0de6be16b874c[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sun Nov 16 17:07:59 2025 +0700
+
+    Доработал мэйк-файл
+
+[33mcommit 74d80664c236ff4fe74dd2d7ffd59ceb56bca3b4[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sun Nov 16 15:10:09 2025 +0700
+
+    Выполнено задание 4.1 Реализация статической библиотеки
+
+[33mcommit a5bdee6f900dc32a3321bed64210ad7c6314d5ea[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Nov 14 17:59:43 2025 +0700
+
+    Исправлено форматирование кода
+
+[33mcommit ba8f8dc57b0eddfb89ba15521529ef8c459ba528[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Nov 14 17:50:37 2025 +0700
+
+    Убрал исполняемый файл
+
+[33mcommit f5ce5740ba371f79b01a689dbd5f214be109ebae[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Nov 14 17:46:44 2025 +0700
+
+    Финальная версия телефонного справочника с деревом
+
+[33mcommit ea390de500876b3d13f3df6784bb1b6bc537fa26[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Nov 14 17:40:22 2025 +0700
+
+    Рабочая версия телефонного справочника с деревом, но кривым выводом дерева
+
+[33mcommit 2fabd40870814b4f784cb32f3f8ae7608ed0f437[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Thu Nov 13 22:23:35 2025 +0700
+
+    Удалил исполняемый файл
+
+[33mcommit 8eb2870682b6397a8a2280a7bef4cbca94c2dec5[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Thu Nov 13 22:14:24 2025 +0700
+
+    Добавлено задание 3.2 очередь с приоритетом
+
+[33mcommit 163433d1a2288a55d3f62de6e3f179174c6b096e[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Mon Nov 10 17:26:25 2025 +0700
+
+    Добавлены задание 2.2 и 3.1
+
+[33mcommit c005b4ed30c13940ee34b384a5ebe0f9f74d69f6[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sat Nov 8 13:51:07 2025 +0700
+
+    Реализован chmod
+
+[33mcommit ba02acfec068b1e3ed19a6adf0a70619e02f2e57[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Oct 31 10:34:33 2025 +0700
+
+    Реализован калькулятор 1.2
+
+[33mcommit 1dc911acbe529edb951d9df58a3a219be92335d8[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Thu Oct 30 16:51:19 2025 +0700
+
+    Реализована телефонная книга с интерфейсом
+
+[33mcommit 1834618ff71cb71dbf0daa59a83f7629c0c9255d[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Mon Oct 27 18:25:43 2025 +0700
+
+    Добавлена реализация Add()
+
+[33mcommit ea4a9184d0117f18fa1542f4fbcb86c457cb7d84[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Mon Oct 27 16:12:06 2025 +0700
+
+    То же самое, но улучшена читабельность аргументов функция, и добавлен список флагов для функции CommandParser
+
+[33mcommit 04053039f8fa7db3dcc8a446d16726f6fc3ce9b3[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Mon Oct 27 15:41:19 2025 +0700
+
+    Добавлены файлы backend.h, backend.c, main.c. Функции Add(), Edit(), Delete() пока не реализованы
+
+[33mcommit a171c6dcda3efac499f0079fdb4a9bb0063c6380[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sun Oct 26 17:15:56 2025 +0700
+
+    Добавлен Makefile для Phonelist
+
+[33mcommit a83ffcc89b53b36f65ab7bf52edbf0717f9d7187[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sun Oct 26 17:10:39 2025 +0700
+
+    Добавлен Makefile
+
+[33mcommit dbae5c485a23beec57d3208a02bcad95f0fb16b9[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sun Oct 26 15:42:09 2025 +0700
+
+    Создана структура директории Module2
+
+[33mcommit be9165634d914608bec43ca40b44f4e20535eecb[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sun Oct 26 15:20:27 2025 +0700
+
+    Добавил отдельные директории для первого и второго модулей
+
+[33mcommit ce33e50b77eee46a8eab367fd886b09cc2aed468[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Sat Oct 25 13:24:15 2025 +0700
+
+    Отчёт по первой практике первого раздела
+
+[33mcommit 4efb4a748be7ac07fc7bc10b00b03ce0f776e893[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Oct 24 17:16:23 2025 +0700
+
+    Отчёты по второй практике
+
+[33mcommit a2dbeb48ff16915672770033aa349d4a5216f37d[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Oct 24 15:39:42 2025 +0700
+
+    Внёс изменения в основной каталог
+
+[33mcommit 9e6492e35e06bd23fa8bcfd84dbc3485ce01ad5e[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Oct 24 15:28:02 2025 +0700
+
+    Отчёты к пректике 1 разделы 2 и 3
+
+[33mcommit 3128fb46be6f94ed88fa56e4570b8f38147b059e[m
+Author: crab-sudo <ozucoya@mail.ru>
+Date:   Fri Oct 24 14:25:40 2025 +0700
+
+    first commit
