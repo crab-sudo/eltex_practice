@@ -41,8 +41,18 @@ int main() {
     if (qid_out != (mqd_t)-1) mq_close(qid_out);
     if (qid_in  != (mqd_t)-1) mq_close(qid_in);
 
-    if (created_out) mq_unlink("/queue1");
-    if (created_in)  mq_unlink("/queue2");
-
+    if (created_out) {
+        if (cid == 1) {
+            if (mq_unlink("/queue1") == -1)
+                perror("mq_unlink /queue1 failed");
+            else
+                printf("[SYSTEM] Unlinked /queue1\n");
+        } else if (cid == 2) {
+            if (mq_unlink("/queue2") == -1)
+                perror("mq_unlink /queue2 failed");
+            else
+                printf("[SYSTEM] Unlinked /queue2\n");
+        }
+    }
     return 0;
 }

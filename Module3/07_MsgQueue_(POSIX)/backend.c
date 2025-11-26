@@ -26,13 +26,13 @@ void StartMqueue(   int*    cid,
     const char  *name1          = "/queue1";
     const char  *name2          = "/queue2";
     struct      mq_attr attr;
-    attr.mq_flags   = 0;
-    attr.mq_maxmsg  = 10;
-    attr.mq_msgsize = 256;
-    attr.mq_curmsgs = 0;
+    attr.mq_flags               = 0;
+    attr.mq_maxmsg              = 10;
+    attr.mq_msgsize             = 256;
+    attr.mq_curmsgs             = 0;
 
-    *created_in     = 0;
-    *created_out    = 0;
+    *created_in                 = 0;
+    *created_out                = 0;
 
     mqd_t q1 = mq_open(name1, O_RDONLY);
     if (q1 != (mqd_t)-1) {
@@ -167,7 +167,7 @@ void StartSender(mqd_t qid, int cid) {
         printf("> ");
         fflush(stdout);
 
-        char line[256];
+        char line[200];
         if (!fgets(line, sizeof(line), stdin)) {
 
             snprintf(line, sizeof(line), "[FROM %d] Client shutdown", cid);
