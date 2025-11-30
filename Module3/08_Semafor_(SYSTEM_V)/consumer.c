@@ -2,8 +2,6 @@
 
 
 
-
-
 int main(int argc, char *argv[])
 {
     if (argc < 2) {
@@ -86,9 +84,9 @@ int main(int argc, char *argv[])
             if (sscanf(token, "%d", &value) == 1) {
                 if (value < min) min = value;
                 if (value > max) max = value;
-    }
-    token = strtok(NULL, " ");
-}
+            }
+            token = strtok(NULL, " ");
+        }
 
 
         printf("Consumer: min=%d max=%d\n", min, max);

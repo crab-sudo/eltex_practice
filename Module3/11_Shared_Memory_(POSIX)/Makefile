@@ -1,5 +1,5 @@
 COMPIL   = gcc
-FLAGS    = -g -c -Wall –lrt
+FLAGS    = -g -c -Wall
 
 P_TARGET   = parent.out
 P_SOURCES  = parent.c
