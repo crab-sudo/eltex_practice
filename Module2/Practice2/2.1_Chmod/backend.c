@@ -6,7 +6,7 @@ char* StatusToString(STATUS status){
         case CODE_0:                            return "CODE_0";                            break;
         case ERR_INCORRECT_NOMB:                return "ERR_INCORRECT_NOMB";                break;
         case ERR_INCORRECT_SYMBOLIC:            return "ERR_INCORRECT_SYMBOLIC";            break;
-        case ERR_INCORRECT_ACCESS_PERMISSION:   return "ERR_INCORRECT_ACCESS_PERMISSION";    break;
+        case ERR_INCORRECT_ACCESS_PERMISSION:   return "ERR_INCORRECT_ACCESS_PERMISSION";   break;
         case ERR_INCORRECT_FILENAME:            return "ERR_INCORRECT_FILENAME";            break;
     }
 }
