@@ -5,24 +5,36 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-int sock;
-volatile int running = 1;
+int 			sock;
+volatile sig_atomic_t 	running = 1;
 
-struct sockaddr_in client1, client2;
-int has_client1 = 0;
-int has_client2 = 0;
+
+
+
+
+struct 	sockaddr_in client1, client2;
+int 	has_client1 = 0;
+int 	has_client2 = 0;
+
+
+
+
 
 void handle_sigint(int sig) {
     running = 0;
     printf("\nServer stopping...\n");
 }
 
+
+
+
+
 int main() {
     signal(SIGINT, handle_sigint);
 
-    struct sockaddr_in server, client;
-    char buffer[1024];
-    socklen_t len = sizeof(client);
+    struct sockaddr_in 	server, client;
+    char 		buffer[1024];
+    socklen_t 		len = sizeof(client);
 
     sock = socket(AF_INET, SOCK_DGRAM, 0);
 
