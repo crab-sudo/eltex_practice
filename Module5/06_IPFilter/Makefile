@@ -1,4 +1,4 @@
-obj-m += datatrader.o
+obj-m += ipfilter.o
 
 KDIR := /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
@@ -10,13 +10,13 @@ clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) clean
 
 load:
-	sudo insmod datatrader.ko
+	sudo insmod ipfilter.ko
 
 unload:
-	sudo rmmod datatrader
+	sudo rmmod ipfilter
 
 check:
-	dmesg | tail -20
+	dmesg | tail -10
 
 test:
 	bash ./test.sh

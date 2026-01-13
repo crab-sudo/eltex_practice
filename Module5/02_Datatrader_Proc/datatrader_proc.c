@@ -8,23 +8,15 @@
 #include <linux/version.h>
 #include <linux/slab.h>
 
-
-
-
 MODULE_LICENSE(     "GPL");
 MODULE_AUTHOR(      "Evgeniy");
 MODULE_DESCRIPTION( "Kernel module for procfs communication");
 MODULE_VERSION(     "1.0");
 
-
-
-#define MODULE_NAME     "datraproc_module"
+#define MODULE_NAME     "datatrader_proc"
 #define PROC_DIR_NAME   "datraproc"
 #define PROC_FILE_NAME  "data"
 #define MAX_BUFFER_SIZE 1024
-
-
-
 
 struct module_data {
     char    *buffer;
@@ -133,7 +125,7 @@ static const struct file_operations proc_fops = {
 
 static int __init proc_comm_module_init(void)
 {
-    int ret = 0;
+    int status= 0;
     
     pr_info("%s: Initializing module\n", MODULE_NAME);
     
@@ -164,7 +156,7 @@ static int __init proc_comm_module_init(void)
     if (!mod_data->proc_dir) {
 
         pr_err("%s: Failed to create proc directory\n", MODULE_NAME);
-        ret = -ENOMEM;
+        status= -ENOMEM;
         goto cleanup_buffer;
     }
     
@@ -176,7 +168,7 @@ static int __init proc_comm_module_init(void)
     if (!mod_data->proc_file) {
         
         pr_err("%s: Failed to create proc file\n", MODULE_NAME);
-        ret = -ENOMEM;
+        status= -ENOMEM;
         goto cleanup_dir;
     }
     
